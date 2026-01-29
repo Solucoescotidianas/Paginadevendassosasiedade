@@ -2,110 +2,381 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <!-- Meta viewport reforçada para dispositivos móveis -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no, viewport-fit=cover">
-    <meta name="description" content="SOS Ansiedade — Página de divulgação">
-    <title>Nova Página – SOS Ansiedade</title>
-
-    <!-- Favicon (substitua pelo seu arquivo) -->
+    <meta name="description" content="SOS Ansiedade & Sono — Alívio imediato quando o desespero bater">
+    <title>Seu coração está disparado agora? | SOS Ansiedade & Sono</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-
-    <!-- Estilos básicos -->
+    
     <style>
-        :root {
-            --header-height: 64px;
-            --footer-height: 48px;
-        }
-        /* Ajustes gerais para dispositivos móveis */
-        html, body {
-            height: 100%;
+        * {
             margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background: #fff;
-            color: #222;
-            -webkit-text-size-adjust: 100%; /* evita zoom automático de texto em iOS */
+            padding: 0;
             box-sizing: border-box;
-            overflow-x: hidden; /* evita scroll horizontal acidental */
         }
-        *, *::before, *::after { box-sizing: inherit; }
 
-        header {
-            height: var(--header-height);
-            display: flex;
-            align-items: center;
-            padding: 0 16px;
-            background: #0b63a4;
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            background: #f9f9f9;
+            color: #2a2a2a;
+            line-height: 1.6;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Headline - máximo impacto */
+        .headline {
+            background: linear-gradient(135deg, #c9302c 0%, #e74c3c 100%);
             color: #fff;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 1.125rem;
-        }
-        /* Faz o main ocupar exatamente a área disponível entre header e footer */
-        main {
-            min-height: calc(100vh - var(--header-height) - var(--footer-height));
-        }
-        /* Wrapper com altura calculada para ocupar o espaço disponível */
-        .embed-wrapper {
-            height: calc(100vh - var(--header-height) - var(--footer-height));
-            width: 100%;
-            display: block;
-            overflow: hidden;
-        }
-        /* Iframe responsivo: ocupa toda a largura disponível, sem exceder */
-        .embed-frame {
-            width: 100%;
-            height: 100%;
-            max-width: 100%;
-            border: 0;
-            display: block;
+            padding: 40px 20px;
+            text-align: center;
+            margin: 0 -20px 30px -20px;
         }
 
-        footer {
-            height: var(--footer-height);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .headline h1 {
+            font-size: 2.2rem;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+        }
+
+        .headline p {
+            font-size: 1.1rem;
+            font-weight: 500;
+            opacity: 0.95;
+        }
+
+        /* Seções de texto */
+        .section {
+            background: #fff;
+            padding: 30px 25px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .section h2 {
+            font-size: 1.6rem;
+            color: #c9302c;
+            margin-bottom: 16px;
+            font-weight: 800;
+        }
+
+        .section p {
+            font-size: 1.05rem;
+            margin-bottom: 14px;
+            line-height: 1.7;
+        }
+
+        .section p strong {
+            color: #c9302c;
+            font-weight: 700;
+        }
+
+        /* Lista de sintomas */
+        .symptoms {
+            background: #fff3f3;
+            padding: 20px;
+            border-left: 4px solid #c9302c;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .symptoms ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .symptoms li {
+            padding: 8px 0;
+            font-size: 1.05rem;
+            position: relative;
+            padding-left: 28px;
+        }
+
+        .symptoms li:before {
+            content: "✗";
+            position: absolute;
+            left: 0;
+            color: #c9302c;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Solução - destaque máximo */
+        .solution {
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+            color: #fff;
+            padding: 40px 25px;
+            text-align: center;
+            border-radius: 8px;
+            margin: 40px 0;
+            box-shadow: 0 4px 16px rgba(39, 174, 96, 0.3);
+        }
+
+        .solution h2 {
+            font-size: 1.8rem;
+            color: #fff;
+            margin-bottom: 20px;
+            font-weight: 900;
+        }
+
+        .solution p {
+            font-size: 1.15rem;
+            margin-bottom: 16px;
+            line-height: 1.8;
+        }
+
+        /* Botão SOS - o herói */
+        .cta-button {
+            display: inline-block;
+            background: #fff;
+            color: #27ae60;
+            font-size: 1.5rem;
+            font-weight: 900;
+            padding: 20px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            margin: 25px 0 15px 0;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+        }
+
+        .cta-button:active {
+            transform: translateY(0);
+        }
+
+        /* Preço */
+        .price {
+            background: #fff;
+            padding: 35px 25px;
+            text-align: center;
+            border-radius: 8px;
+            margin: 30px 0;
+            border: 3px solid #27ae60;
+        }
+
+        .price p {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .price .amount {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #27ae60;
+            margin: 10px 0;
+            line-height: 1;
+        }
+
+        .price .amount small {
+            font-size: 2rem;
+            vertical-align: top;
+        }
+
+        .price .value {
+            font-size: 1.2rem;
+            color: #c9302c;
+            font-weight: 700;
+            margin-top: 10px;
+        }
+
+        /* Garantia/Urgência */
+        .urgency {
+            background: #fff9e6;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #f39c12;
+            margin: 25px 0;
+        }
+
+        .urgency p {
+            font-size: 1.08rem;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .urgency strong {
+            color: #f39c12;
+            font-weight: 700;
+        }
+
+        /* Disclaimer */
+        .disclaimer {
             background: #f5f5f5;
+            padding: 20px;
             font-size: 0.9rem;
-            color: #333;
+            color: #666;
+            border-radius: 4px;
+            margin: 30px 0;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        /* Responsivo */
+        @media (max-width: 600px) {
+            .headline h1 {
+                font-size: 1.6rem;
+            }
+            .headline p {
+                font-size: 1rem;
+            }
+            .section h2 {
+                font-size: 1.4rem;
+            }
+            .section p {
+                font-size: 1rem;
+            }
+            .solution h2 {
+                font-size: 1.5rem;
+            }
+            .cta-button {
+                font-size: 1.2rem;
+                padding: 18px 40px;
+            }
+            .price .amount {
+                font-size: 2.8rem;
+            }
         }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>SOS Ansiedade</h1>
-</header>
+<div class="headline">
+    <h1>Seu coração está disparado agora?</h1>
+    <p>O ar não entra direito. O peito aperta. A cabeça não para.</p>
+</div>
 
-<main>
-    <div class="embed-wrapper">
-        <iframe 
-            class="embed-frame"
-            src="https://www.canva.com/design/DAG_uEdzx48/VFfvj6M5PakzqhleURzpNQ/view?embed"
-            allowfullscreen
-            loading="lazy"
-            title="Design SOS Ansiedade">
-        </iframe>
+<div class="container">
+    
+    <div class="section">
+        <h2>Você está aqui porque conhece isso:</h2>
+        
+        <div class="symptoms">
+            <ul>
+                <li>O coração acelera do nada e parece que vai sair pela boca</li>
+                <li>A respiração fica curta, como se faltasse ar</li>
+                <li>O peito aperta tanto que você acha que algo está errado</li>
+                <li>A cabeça gira, o medo de perder o controle toma conta</li>
+                <li>À noite, a mente não desliga — pensamentos em loop</li>
+                <li>Você deita, mas o corpo não relaxa. O sono não vem.</li>
+            </ul>
+        </div>
+        
+        <p><strong>E o pior?</strong></p>
+        <p>Pensar em "respirar fundo" não funciona.</p>
+        <p>Tentar se acalmar sozinho parece impossível.</p>
+        <p>Ninguém ao redor entende o que você está sentindo naquele momento.</p>
     </div>
-</main>
+
+    <div class="section">
+        <h2>Eu entendo você.</h2>
+        <p>Não é frescura. Não é drama.</p>
+        <p><strong>É real. É físico. E é desesperador.</strong></p>
+        <p>Você não precisa de mais explicações. Você não precisa de teorias.</p>
+        <p>Você precisa de <strong>AJUDA. AGORA.</strong></p>
+        <p>Quando a crise bater. Quando a noite chegar e o sono não vier.</p>
+    </div>
+
+    <div class="solution">
+        <h2>É POR ISSO QUE EXISTE O BOTÃO SOS</h2>
+        <p><strong>Um botão.</strong> Você aperta.</p>
+        <p>Uma orientação guiada começa <strong>na hora</strong>.</p>
+        <p>Alguém que entende o que você está passando te guia, passo a passo, até você voltar.</p>
+        <p><strong>Sem pensar. Sem tentar lembrar técnicas.</strong></p>
+        <p>Só apertar. E seguir.</p>
+        
+        <a href="#comprar" class="cta-button">QUERO O BOTÃO SOS AGORA</a>
+        
+        <p style="margin-top: 20px; font-size: 1rem;">👆 Esse botão pode ser a diferença entre passar a crise sozinho ou com ajuda.</p>
+    </div>
+
+    <div class="section">
+        <h2>Como funciona o SOS Ansiedade & Sono?</h2>
+        <p>Simples. Direto. Sem complicação.</p>
+        <p><strong>1.</strong> Você compra e recebe acesso imediato.</p>
+        <p><strong>2.</strong> Quando a ansiedade bater ou o sono não vier, você aperta o botão.</p>
+        <p><strong>3.</strong> A orientação guiada começa — voz calma, passos claros.</p>
+        <p><strong>4.</strong> Você segue, respira conforme orientado, volta ao controle.</p>
+        <p style="margin-top: 20px;"><strong>Não precisa pensar. Não precisa lembrar de nada.</strong></p>
+        <p>Só ter o botão disponível quando precisar.</p>
+    </div>
+
+    <div class="urgency">
+        <p><strong>Você já passou por isso antes.</strong></p>
+        <p>E vai passar de novo se não tiver algo que te ajude naquele momento.</p>
+        <p>A próxima crise não avisa.</p>
+        <p>A próxima noite sem dormir pode ser hoje.</p>
+        <p><strong>Ter o Botão SOS é ter uma saída quando você mais precisa.</strong></p>
+    </div>
+
+    <div class="price" id="comprar">
+        <p>Quanto custa ter alguém do seu lado quando a ansiedade atacar?</p>
+        <p class="amount"><small>R$</small> 5</p>
+        <p class="value">Menos que um café. Um botão que pode mudar sua noite.</p>
+        
+        <a href="https://pay.hotmart.com/SEULINKDECOMPRA" class="cta-button" style="margin-top: 30px;">GARANTIR MEU ACESSO AGORA</a>
+        
+        <p style="margin-top: 25px; font-size: 1rem; color: #777;">Acesso imediato. Disponível 24h quando você precisar.</p>
+    </div>
+
+    <div class="section">
+        <h2>O que você NÃO vai passar mais:</h2>
+        <p><strong>✗</strong> Aquele desespero de sentir a crise chegar e não saber o que fazer.</p>
+        <p><strong>✗</strong> Tentar lembrar de técnicas enquanto o coração dispara.</p>
+        <p><strong>✗</strong> Deitar na cama e saber que não vai conseguir dormir.</p>
+        <p><strong>✗</strong> Se sentir completamente sozinho naquele momento.</p>
+        <p style="margin-top: 25px;"><strong>Com o Botão SOS, você tem ajuda quando precisar.</strong></p>
+        <p>Não é mágica. Não é cura.</p>
+        <p>É <strong>suporte real, no momento exato em que você precisa</strong>.</p>
+    </div>
+
+    <div class="urgency">
+        <p><strong>Pense na próxima vez que isso acontecer.</strong></p>
+        <p>Você quer estar sozinho, tentando se controlar sem ajuda?</p>
+        <p>Ou quer ter um botão que, ao apertar, te guia de volta?</p>
+        <p style="margin-top: 20px; font-size: 1.15rem;"><strong>São R$ 5. Uma decisão simples.</strong></p>
+    </div>
+
+    <div style="text-align: center; margin: 40px 0;">
+        <a href="#comprar" class="cta-button">SIM, EU QUERO O BOTÃO SOS</a>
+        <p style="margin-top: 20px; color: #888; font-size: 1rem;">Você não quer passar pela próxima crise sem essa ajuda.</p>
+    </div>
+
+    <div class="disclaimer">
+        <p><strong>Aviso importante:</strong> O SOS Ansiedade & Sono é uma ferramenta de suporte e orientação em momentos de crise. Não substitui acompanhamento psicológico, psiquiátrico ou qualquer tratamento médico profissional. Se você está enfrentando ansiedade ou insônia recorrentes, procure um profissional de saúde qualificado.</p>
+    </div>
+
+</div>
 
 <footer>
-    &copy; <span id="year"></span> SOS Ansiedade — Todos os direitos reservados
+    <p>&copy; <span id="year"></span> SOS Ansiedade & Sono. Todos os direitos reservados.</p>
 </footer>
 
 <script>
-    // Inserir ano automaticamente
     document.getElementById('year').textContent = new Date().getFullYear();
 </script>
-
-<!-- Fallback para usuários sem JavaScript -->
-<noscript>
-    <div style="padding:16px; text-align:center;">
-        Para ver o conteúdo, por favor ative o JavaScript ou acesse diretamente:
-        <a href="https://www.canva.com/design/DAG_uEdzx48/VFfvj6M5PakzqhleURzpNQ/view" target="_blank" rel="noopener">Abrir no Canva</a>
-    </div>
-</noscript>
 
 </body>
 </html>
