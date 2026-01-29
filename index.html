@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no, viewport-fit=cover">
-    <meta name="description" content="SOS Ansiedade & Sono — Alívio imediato quando o desespero bater">
+    <meta name="description" content="SOS Ansiedade & Sono — Suporte e orientação guiada quando você mais precisa">
     <title>Seu coração está disparado agora? | SOS Ansiedade & Sono</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     
@@ -28,13 +28,16 @@
             padding: 20px;
         }
 
+        main.container {
+            padding-top: 30px;
+        }
+
         /* Headline - máximo impacto */
         .headline {
             background: linear-gradient(135deg, #c9302c 0%, #e74c3c 100%);
             color: #fff;
             padding: 40px 20px;
             text-align: center;
-            margin: 0 -20px 30px -20px;
         }
 
         .headline h1 {
@@ -159,6 +162,11 @@
             transform: translateY(0);
         }
 
+        .cta-button:focus {
+            outline: 3px solid #f39c12;
+            outline-offset: 2px;
+        }
+
         /* Preço */
         .price {
             background: #fff;
@@ -206,7 +214,7 @@
 
         .urgency p {
             font-size: 1.08rem;
-            color: #555;
+            color: #333;
             line-height: 1.7;
         }
 
@@ -220,7 +228,7 @@
             background: #f5f5f5;
             padding: 20px;
             font-size: 0.9rem;
-            color: #666;
+            color: #333;
             border-radius: 4px;
             margin: 30px 0;
             line-height: 1.6;
@@ -232,6 +240,47 @@
             padding: 30px 20px;
             color: #999;
             font-size: 0.9rem;
+        }
+
+        /* Utility classes */
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-20 {
+            margin-top: 20px;
+        }
+
+        .mt-25 {
+            margin-top: 25px;
+        }
+
+        .mt-30 {
+            margin-top: 30px;
+        }
+
+        .mt-40 {
+            margin-top: 40px;
+        }
+
+        .mb-40 {
+            margin-bottom: 40px;
+        }
+
+        .text-small {
+            font-size: 1rem;
+        }
+
+        .text-medium {
+            font-size: 1.15rem;
+        }
+
+        .text-gray {
+            color: #777;
+        }
+
+        .text-gray-light {
+            color: #888;
         }
 
         /* Responsivo */
@@ -263,12 +312,12 @@
 </head>
 <body>
 
-<div class="headline">
+<header class="headline">
     <h1>Seu coração está disparado agora?</h1>
     <p>O ar não entra direito. O peito aperta. A cabeça não para.</p>
-</div>
+</header>
 
-<div class="container">
+<main class="container">
     
     <div class="section">
         <h2>Você está aqui porque conhece isso:</h2>
@@ -309,7 +358,7 @@
         
         <a href="#comprar" class="cta-button">QUERO O BOTÃO SOS AGORA</a>
         
-        <p style="margin-top: 20px; font-size: 1rem;">👆 Esse botão pode ser a diferença entre passar a crise sozinho ou com ajuda.</p>
+        <p class="mt-20 text-small">👆 Esse botão pode ser a diferença entre passar a crise sozinho ou com ajuda.</p>
     </div>
 
     <div class="section">
@@ -319,7 +368,7 @@
         <p><strong>2.</strong> Quando a ansiedade bater ou o sono não vier, você aperta o botão.</p>
         <p><strong>3.</strong> A orientação guiada começa — voz calma, passos claros.</p>
         <p><strong>4.</strong> Você segue, respira conforme orientado, volta ao controle.</p>
-        <p style="margin-top: 20px;"><strong>Não precisa pensar. Não precisa lembrar de nada.</strong></p>
+        <p class="mt-20"><strong>Não precisa pensar. Não precisa lembrar de nada.</strong></p>
         <p>Só ter o botão disponível quando precisar.</p>
     </div>
 
@@ -336,9 +385,9 @@
         <p class="amount"><small>R$</small> 5</p>
         <p class="value">Menos que um café. Um botão que pode mudar sua noite.</p>
         
-        <a href="https://pay.hotmart.com/SEULINKDECOMPRA" class="cta-button" style="margin-top: 30px;">GARANTIR MEU ACESSO AGORA</a>
+        <a href="https://pay.hotmart.com/SEULINKDECOMPRA" class="cta-button mt-30">GARANTIR MEU ACESSO AGORA</a>
         
-        <p style="margin-top: 25px; font-size: 1rem; color: #777;">Acesso imediato. Disponível 24h quando você precisar.</p>
+        <p class="mt-25 text-small text-gray">Acesso imediato. Disponível 24h quando você precisar.</p>
     </div>
 
     <div class="section">
@@ -347,7 +396,7 @@
         <p><strong>✗</strong> Tentar lembrar de técnicas enquanto o coração dispara.</p>
         <p><strong>✗</strong> Deitar na cama e saber que não vai conseguir dormir.</p>
         <p><strong>✗</strong> Se sentir completamente sozinho naquele momento.</p>
-        <p style="margin-top: 25px;"><strong>Com o Botão SOS, você tem ajuda quando precisar.</strong></p>
+        <p class="mt-25"><strong>Com o Botão SOS, você tem ajuda quando precisar.</strong></p>
         <p>Não é mágica. Não é cura.</p>
         <p>É <strong>suporte real, no momento exato em que você precisa</strong>.</p>
     </div>
@@ -356,19 +405,19 @@
         <p><strong>Pense na próxima vez que isso acontecer.</strong></p>
         <p>Você quer estar sozinho, tentando se controlar sem ajuda?</p>
         <p>Ou quer ter um botão que, ao apertar, te guia de volta?</p>
-        <p style="margin-top: 20px; font-size: 1.15rem;"><strong>São R$ 5. Uma decisão simples.</strong></p>
+        <p class="mt-20 text-medium"><strong>São R$ 5. Uma decisão simples.</strong></p>
     </div>
 
-    <div style="text-align: center; margin: 40px 0;">
+    <div class="text-center mt-40 mb-40">
         <a href="#comprar" class="cta-button">SIM, EU QUERO O BOTÃO SOS</a>
-        <p style="margin-top: 20px; color: #888; font-size: 1rem;">Você não quer passar pela próxima crise sem essa ajuda.</p>
+        <p class="mt-20 text-gray-light text-small">Você não quer passar pela próxima crise sem essa ajuda.</p>
     </div>
 
     <div class="disclaimer">
         <p><strong>Aviso importante:</strong> O SOS Ansiedade & Sono é uma ferramenta de suporte e orientação em momentos de crise. Não substitui acompanhamento psicológico, psiquiátrico ou qualquer tratamento médico profissional. Se você está enfrentando ansiedade ou insônia recorrentes, procure um profissional de saúde qualificado.</p>
     </div>
 
-</div>
+</main>
 
 <footer>
     <p>&copy; <span id="year"></span> SOS Ansiedade & Sono. Todos os direitos reservados.</p>
