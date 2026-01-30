@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="pt-BR" class="h-full">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SOS Ansiedade - Respiração Guiada para Momentos Difíceis</title>
+  <meta name="description" content="SOS Ansiedade — respiração guiada simples e imediata para momentos difíceis. Acesso imediato, sem app." />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:title" content="SOS Ansiedade — Respiração Guiada" />
+  <meta property="og:description" content="Respiração guiada para ajudar a acalmar durante crises. Acesso imediato por link." />
+  <!-- Troque pela URL real da imagem se disponível -->
+  <meta property="og:image" content="https://seu-dominio.com/preview.jpg" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Fonte -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind (CDN para desenvolvimento). Em produção, gere CSS com Tailwind CLI/PostCSS e substitua -->
+  <script src="https://cdn.tailwindcss.com" defer></script>
+
+  <!-- SDKs (defer para melhor carregamento). Troque/valide as URLs reais dos SDKs -->
+  <script src="/_sdk/element_sdk.js" defer></script>
+  <script src="/_sdk/data_sdk.js" defer></script>
+
+  <style>
+    /* Base font */
+    * { font-family: 'Nunito', sans-serif; box-sizing: border-box; }
+
+    /* Background gradient */
+    .gradient-bg {
+      background: linear-gradient(180deg, #f0f7f4 0%, #e8f4f0 50%, #dceee7 100%);
+    }
+
+    /* Animations */
+    .breathing-circle { animation: breathe 4s ease-in-out infinite; }
+    @keyframes breathe {
+      0%,100% { transform: scale(1); opacity: 0.6; }
+      50% { transform: scale(1.15); opacity: 0.9; }
+    }
+
+    .float-gentle { animation: floatGentle 6s ease-in-out infinite; }
+    @keyframes floatGentle {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    .pulse-soft { animation: pulseSoft 2s ease-in-out infinite; }
+    @keyframes pulseSoft {
+      0%,100% { box-shadow: 0 4px 20px rgba(76,175,140,0.3); }
+      50% { box-shadow: 0 6px 30px rgba(76,175,140,0.5); }
+    }
+
+    .fade-in { animation: fadeIn 0.8s ease-out forwards; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .stagger-1 { animation-delay: 0.1s; }
+    .stagger-2 { animation-delay: 0.2s; }
+    .stagger-3 { animation-delay: 0.3s; }
+    .stagger-4 { animation-delay: 0.4s; }
+    .stagger-5 { animation-delay: 0.5s; }
+
+    .testimonial-card { backdrop-filter: blur(10px); background: rgba(255,255,255,0.85); }
+
+    .check-icon { background: linear-gradient(135deg, #4caf8c 0%, #3d9a7a 100%); }
+    .cta-button {
+      background: linear-gradient(135deg, #4caf8c 0%, #3d9a7a 100%);
+      transition: all 0.3s ease;
+    }
+    .cta-button:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(76,175,140,0.4); }
+    .cta-button:active { transform: translateY(0); }
+
+    .price-badge { background: linear-gradient(135deg,#fff9e6 0%,#fff3cc 100%); border: 2px solid #f5d76e; }
+    .guarantee-badge { background: linear-gradient(135deg,#e8f5e9 0%,#c8e6c9 100%); }
+    .phone-mockup { background: linear-gradient(180deg,#1a1a2e 0%,#16213e 100%); border-radius: 32px; padding: 8px; box-shadow: 0 25px 50px rgba(0,0,0,0.15); }
+    .phone-screen { background: linear-gradient(180deg,#f8faf9 0%,#e8f4f0 100%); border-radius: 24px; }
+
+    .scroll-indicator { animation: scrollBounce 2s ease-in-out infinite; }
+    @keyframes scrollBounce {
+      0%,100% { transform: translateY(0); } 50% { transform: translateY(8px); }
+    }
+
+    /* prefers-reduced-motion */
+    @media (prefers-reduced-motion: reduce) {
+      .breathing-circle, .float-gentle, .pulse-soft, .fade-in, .scroll-indicator {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+
+    /* Small tweak to ensure fade-in elements start invisible until script/CSS sets them */
+    .opacity-0 { opacity: 0; }
+  </style>
+</head>
+<body class="h-full gradient-bg overflow-auto">
+  <main class="w-full min-h-full">
+    <!-- PRIMEIRA DOBRA - Hero Section -->
+    <header class="min-h-screen relative flex flex-col items-center justify-center px-4 py-12 overflow-hidden" role="banner">
+      <!-- Decorative breathing circles (aria-hidden = decorativo) -->
+      <div aria-hidden="true" class="absolute top-20 left-10 w-32 h-32 rounded-full bg-emerald-200/30 breathing-circle" style="animation-delay:0s;"></div>
+      <div aria-hidden="true" class="absolute top-40 right-8 w-24 h-24 rounded-full bg-teal-200/25 breathing-circle" style="animation-delay:1s;"></div>
+      <div aria-hidden="true" class="absolute bottom-32 left-16 w-20 h-20 rounded-full bg-green-200/20 breathing-circle" style="animation-delay:2s;"></div>
+
+      <div class="max-w-lg mx-auto text-center relative z-10">
+        <!-- Soft icon -->
+        <div class="mb-6 fade-in opacity-0 stagger-1" aria-hidden="true">
+          <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-white/80 shadow-lg float-gentle">
+            <svg class="w-10 h-10 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Headline -->
+        <h1 id="headline" class="text-3xl md:text-4xl font-extrabold text-gray-800 leading-tight mb-4 fade-in opacity-0 stagger-2">
+          Quando a ansiedade aperta,<br><span class="text-emerald-700">você tem pra onde ir?</span>
+        </h1>
+
+        <!-- Subheadline -->
+        <p id="subheadline" class="text-lg md:text-xl text-gray-600 leading-relaxed mb-8 fade-in opacity-0 stagger-3">
+          Um SOS de respiração guiada para ajudar o corpo a se acalmar durante crises de ansiedade.
+        </p>
+
+        <!-- Phone Mockup Preview -->
+        <div class="mb-8 fade-in opacity-0 stagger-4" aria-hidden="true">
+          <div class="phone-mockup w-48 h-80 mx-auto" role="img" aria-label="Visual da respiração guiada">
+            <div class="phone-screen w-full h-full flex flex-col items-center justify-center p-4">
+              <div class="w-16 h-16 rounded-full bg-emerald-500/20 breathing-circle flex items-center justify-center mb-3">
+                <div class="w-10 h-10 rounded-full bg-emerald-500/40 flex items-center justify-center">
+                  <div class="w-6 h-6 rounded-full bg-emerald-500"></div>
+                </div>
+              </div>
+              <p class="text-xs text-gray-600 font-semibold">Inspire...</p>
+              <p class="text-xs text-gray-400 mt-1">4 segundos</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA Button (link para #comprar) -->
+        <div class="fade-in opacity-0 stagger-5">
+          <a href="#comprar" class="cta-button pulse-soft inline-block text-white font-bold text-lg px-8 py-4 rounded-full shadow-lg" role="button" aria-label="Ir para a seção de compra - Quero meu acesso agora">
+            <span id="cta_text_hero">Quero meu acesso agora</span>
+          </a>
+          <p class="mt-4 text-sm text-gray-500">
+            <span id="price_hero" class="font-bold text-emerald-700">Apenas R$ 5,99</span> • Acesso imediato
+          </p>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="mt-12 scroll-indicator" aria-hidden="true">
+          <svg class="w-6 h-6 mx-auto text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+          </svg>
+        </div>
+      </div>
+    </header>
+
+    <!-- SEGUNDA DOBRA - Empatia e Problema -->
+    <section class="py-16 px-4 bg-white/60" aria-labelledby="empatia-title">
+      <div class="max-w-lg mx-auto">
+        <div class="text-center mb-10">
+          <h2 id="empatia-title" class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">Você não precisa enfrentar isso sozinha(o).</h2>
+        </div>
+
+        <div class="space-y-4">
+          <article class="bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 w-10 h-10 rounded-full bg-red-50 flex items-center justify-center" aria-hidden="true">😰</div>
+              <p class="text-gray-700 leading-relaxed">O coração dispara, a respiração fica curta, parece que algo ruim vai acontecer...</p>
+            </div>
+          </article>
+
+          <article class="bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 w-10 h-10 rounded-full bg-orange-50 flex items-center justify-center" aria-hidden="true">🌀</div>
+              <p class="text-gray-700 leading-relaxed">A mente acelera, os pensamentos se atropelam, e você não sabe o que fazer...</p>
+            </div>
+          </article>
+
+          <article class="bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-50 flex items-center justify-center" aria-hidden="true">🤲</div>
+              <p class="text-gray-700 leading-relaxed"><strong class="text-emerald-700">É nesses momentos que você precisa de um apoio simples e imediato.</strong></p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- TERCEIRA DOBRA - A Solução -->
+    <section class="py-16 px-4 gradient-bg" aria-labelledby="solucao-title">
+      <div class="max-w-lg mx-auto text-center">
+        <div class="inline-flex items-center gap-2 bg-emerald-100 text-emerald-700 px-4 py-2 rounded-full text-sm font-semibold mb-6">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+          </svg>
+          Simples de usar
+        </div>
+
+        <h2 id="solucao-title" class="text-2xl md:text-3xl font-bold text-gray-800 mb-6">O SOS Ansiedade é como ter uma<br><span class="text-emerald-700">mão amiga no seu bolso</span></h2>
+
+        <p class="text-lg text-gray-600 mb-10 leading-relaxed">Uma página simples, feita para você acessar pelo celular quando precisar. Sem complicação, sem cadastro difícil.</p>
+
+        <!-- Features -->
+        <div class="grid gap-4 text-left">
+          <div class="bg-white rounded-2xl p-5 shadow-sm flex items-center gap-4">
+            <div class="check-icon flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center" aria-hidden="true">
+              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-gray-800">Respiração guiada passo a passo</h3>
+              <p class="text-sm text-gray-500">Visual suave que te conduz com calma</p>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl p-5 shadow-sm flex items-center gap-4">
+            <div class="check-icon flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center" aria-hidden="true">
+              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-gray-800">Acesso pelo celular, a qualquer hora</h3>
+              <p class="text-sm text-gray-500">Funciona onde você estiver</p>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl p-5 shadow-sm flex items-center gap-4">
+            <div class="check-icon flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center" aria-hidden="true">
+              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-gray-800">Sem precisar baixar aplicativo</h3>
+              <p class="text-sm text-gray-500">É só abrir o link e começar</p>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl p-5 shadow-sm flex items-center gap-4">
+            <div class="check-icon flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center" aria-hidden="true">
+              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-gray-800">Feito para momentos difíceis</h3>
+              <p class="text-sm text-gray-500">Simples o suficiente para usar em crise</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUARTA DOBRA - Como Funciona -->
+    <section class="py-16 px-4 bg-white/80" aria-labelledby="como-funciona-title">
+      <div class="max-w-lg mx-auto">
+        <h2 id="como-funciona-title" class="text-2xl md:text-3xl font-bold text-gray-800 text-center mb-10">Como funciona?</h2>
+
+        <div class="space-y-6">
+          <div class="flex items-start gap-4">
+            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-700 font-bold text-xl">1</div>
+            <div class="pt-2">
+              <h3 class="font-bold text-gray-800 mb-1">Você recebe o acesso por email</h3>
+              <p class="text-gray-600">Logo após a compra, o link chega na sua caixa de entrada.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-700 font-bold text-xl">2</div>
+            <div class="pt-2">
+              <h3 class="font-bold text-gray-800 mb-1">Salva o link no seu celular</h3>
+              <p class="text-gray-600">Deixa ele sempre à mão, fácil de encontrar.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-700 font-bold text-xl">3</div>
+            <div class="pt-2">
+              <h3 class="font-bold text-gray-800 mb-1">Quando precisar, é só abrir</h3>
+              <p class="text-gray-600">A respiração guiada vai te ajudar a acalmar o corpo.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUINTA DOBRA - Depoimentos -->
+    <section class="py-16 px-4 gradient-bg" aria-labelledby="depoimentos-title">
+      <div class="max-w-lg mx-auto">
+        <h2 id="depoimentos-title" class="text-2xl md:text-3xl font-bold text-gray-800 text-center mb-10">O que estão dizendo</h2>
+
+        <div class="space-y-4">
+          <div class="testimonial-card rounded-2xl p-5 shadow-sm border border-gray-100">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-10 h-10 rounded-full bg-emerald-200 flex items-center justify-center text-emerald-700 font-bold" aria-hidden="true">M</div>
+              <div>
+                <p class="font-bold text-gray-800">Maria, 52 anos</p>
+                <div class="flex text-yellow-400 text-sm" aria-hidden="true">★★★★★</div>
+              </div>
+            </div>
+            <p class="text-gray-600 italic">"Simples e direto. Quando sinto a ansiedade chegando, abro no celular e sigo a respiração. Me ajuda muito."</p>
+          </div>
+
+          <div class="testimonial-card rounded-2xl p-5 shadow-sm border border-gray-100">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-10 h-10 rounded-full bg-teal-200 flex items-center justify-center text-teal-700 font-bold" aria-hidden="true">C</div>
+              <div>
+                <p class="font-bold text-gray-800">Carlos, 48 anos</p>
+                <div class="flex text-yellow-400 text-sm" aria-hidden="true">★★★★★</div>
+              </div>
+            </div>
+            <p class="text-gray-600 italic">"Achei que não ia funcionar, mas faz diferença ter algo prático pra usar na hora. Recomendo."</p>
+          </div>
+
+          <div class="testimonial-card rounded-2xl p-5 shadow-sm border border-gray-100">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-10 h-10 rounded-full bg-green-200 flex items-center justify-center text-green-700 font-bold" aria-hidden="true">R</div>
+              <div>
+                <p class="font-bold text-gray-800">Regina, 61 anos</p>
+                <div class="flex text-yellow-400 text-sm" aria-hidden="true">★★★★★</div>
+              </div>
+            </div>
+            <p class="text-gray-600 italic">"Não entendo muito de tecnologia, mas consegui usar sem problemas. O visual é calmante."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEXTA DOBRA - Oferta e CTA Principal -->
+    <section id="comprar" class="py-16 px-4 bg-white" aria-labelledby="oferta-title">
+      <div class="max-w-lg mx-auto">
+        <div class="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-3xl p-6 md:p-8 shadow-lg border-2 border-emerald-200">
+          <div class="text-center mb-6">
+            <div class="price-badge inline-block px-4 py-2 rounded-full mb-4"><span class="text-sm font-semibold text-yellow-800">🎁 Oferta Especial</span></div>
+            <h2 id="oferta-title" class="text-2xl md:text-3xl font-bold text-gray-800 mb-2">SOS Ansiedade</h2>
+            <p class="text-gray-600">Respiração guiada para momentos difíceis</p>
+          </div>
+
+          <!-- Price -->
+          <div class="text-center mb-6">
+            <div class="flex items-center justify-center gap-3"><span class="text-gray-400 line-through text-lg">R$ 19,90</span> <span id="price_main" class="text-4xl font-extrabold text-emerald-700">R$ 5,99</span></div>
+            <p class="text-sm text-gray-500 mt-1">Pagamento único • Acesso vitalício</p>
+          </div>
+
+          <!-- What's included -->
+          <div class="bg-white rounded-2xl p-4 mb-6">
+            <p class="font-bold text-gray-800 mb-3 text-center">O que você recebe:</p>
+            <ul class="space-y-2">
+              <li class="flex items-center gap-2 text-gray-700">
+                <svg class="w-5 h-5 text-emerald-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg> Acesso imediato por email
+              </li>
+              <li class="flex items-center gap-2 text-gray-700">
+                <svg class="w-5 h-5 text-emerald-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg> Respiração guiada visual
+              </li>
+              <li class="flex items-center gap-2 text-gray-700">
+                <svg class="w-5 h-5 text-emerald-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg> Use quantas vezes quiser
+              </li>
+              <li class="flex items-center gap-2 text-gray-700">
+                <svg class="w-5 h-5 text-emerald-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg> Funciona no celular e computador
+              </li>
+            </ul>
+          </div>
+
+          <!-- CTA Button -->
+          <button id="main_cta" class="cta-button w-full text-white font-bold text-xl py-5 rounded-full shadow-lg mb-4" type="button" aria-label="Comprar SOS Ansiedade — R$ 5,99">
+            <span id="cta_text_main">Quero meu acesso agora</span>
+          </button>
+
+          <!-- Guarantee -->
+          <div class="guarantee-badge rounded-xl p-4 text-center">
+            <div class="flex items-center justify-center gap-2 mb-2">
+              <svg class="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+              </svg>
+              <span class="font-bold text-emerald-700">Garantia de 7 dias</span>
+            </div>
+            <p class="text-sm text-gray-600">Se não gostar, devolvemos seu dinheiro. Sem perguntas.</p>
+          </div>
+
+          <!-- Trust badges -->
+          <div class="flex items-center justify-center gap-4 mt-6 text-gray-400">
+            <div class="flex items-center gap-1"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/></svg><span class="text-xs">Pagamento seguro</span></div>
+            <div class="flex items-center gap-1"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg><span class="text-xs">Entrega por email</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section (exemplo básico) -->
+    <section class="py-16 px-4 gradient-bg" aria-labelledby="faq-title">
+      <div class="max-w-lg mx-auto">
+        <h2 id="faq-title" class="text-2xl md:text-3xl font-bold text-gray-800 text-center mb-6">Perguntas frequentes</h2>
+        <div class="space-y-4">
+          <details class="bg-white rounded-2xl p-4 shadow-sm">
+            <summary class="font-semibold cursor-pointer">Preciso baixar algum app?</summary>
+            <p class="mt-2 text-gray-600">Não — o SOS Ansiedade funciona direto no navegador do seu celular ou computador.</p>
+          </details>
+          <details class="bg-white rounded-2xl p-4 shadow-sm">
+            <summary class="font-semibold cursor-pointer">Como recebo o acesso?</summary>
+            <p class="mt-2 text-gray-600">Você recebe um link por email logo após a compra.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <footer class="py-8 text-center text-sm text-gray-500">
+      © <span id="year"></span> SOS Ansiedade — Desenvolvido com cuidado. • <a href="#" class="underline">Política de Privacidade</a>
+    </footer>
+  </main>
+
+  <script>
+    // Small enhancement: set current year and reveal fade-in elements once DOM is ready
+    document.addEventListener('DOMContentLoaded', function () {
+      const yearEl = document.getElementById('year');
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+      // Reveal fade-in elements (progressive enhancement)
+      document.querySelectorAll('.fade-in').forEach(el => {
+        el.classList.remove('opacity-0');
+      });
+
+      // Example click handler for CTA (replace with real checkout logic)
+      const btn = document.getElementById('main_cta');
+      if (btn) {
+        btn.addEventListener('click', function () {
+          // aqui você colocaria a integração com checkout/gera link/email
+          alert('Ação de compra simulada — integre seu provedor de pagamento aqui.');
+        });
+      }
+    });
+  </script>
+</body>
+</html>
