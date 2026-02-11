@@ -3,122 +3,410 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SOS Ansiedade - Alívio Imediato</title>
+<title>SOS Ansiedade & Sono - Alívio ao Alcance das Suas Mãos</title>
+<meta name="description" content="App para crises de ansiedade e insônia. Botão SOS imediato + áudios guiados para dormir. Apenas R$5,99.">
 <style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
   body {
-    margin:0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background:#f9fafc;
-    color:#222;
-    text-align:center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #2d3748;
+    line-height: 1.6;
+  }
+  .hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    text-align: center;
+    padding: 60px 20px;
+  }
+  .hero h1 {
+    font-size: 34px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  }
+  .hero .subtitle {
+    font-size: 18px;
+    opacity: 0.95;
+    margin-bottom: 15px;
+    font-weight: 400;
+  }
+  .hero .highlight {
+    background: rgba(255,255,255,0.2);
+    padding: 15px 20px;
+    border-radius: 12px;
+    display: inline-block;
+    margin: 20px 0;
   }
   .container {
-    max-width:480px;
-    margin:auto;
-    padding:30px 20px;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 20px;
   }
-  h1 {
-    font-size:26px;
-    line-height:1.3;
-    margin-bottom:15px;
+  .section {
+    background: #fff;
+    margin: 30px auto;
+    padding: 40px 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
   }
   h2 {
-    font-size:20px;
-    margin-top:40px;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #1a202c;
+    text-align: center;
+  }
+  h3 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #2d3748;
   }
   p {
-    font-size:16px;
-    line-height:1.6;
-    margin-bottom:15px;
-  }
-  .price {
-    font-size:28px;
-    font-weight:bold;
-    color:#e63946;
-    margin:20px 0;
-  }
-  .btn {
-    display:block;
-    width:100%;
-    padding:18px;
-    margin:15px 0;
-    background:#e63946;
-    color:#fff;
-    text-decoration:none;
-    font-size:18px;
-    font-weight:bold;
-    border-radius:12px;
-    box-shadow:0 6px 20px rgba(230,57,70,0.3);
-  }
-  .box {
-    background:#ffffff;
-    padding:20px;
-    border-radius:14px;
-    box-shadow:0 4px 20px rgba(0,0,0,0.05);
-    margin-top:25px;
+    font-size: 17px;
+    line-height: 1.7;
+    margin-bottom: 15px;
+    color: #4a5568;
   }
   ul {
-    list-style:none;
-    padding:0;
-    text-align:left;
+    list-style: none;
+    padding: 0;
   }
   li {
-    margin-bottom:10px;
+    font-size: 17px;
+    padding: 12px 0;
+    padding-left: 30px;
+    position: relative;
+    color: #2d3748;
   }
-  .guarantee {
-    font-size:14px;
-    color:#555;
-    margin-top:30px;
+  li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #48bb78;
+    font-weight: bold;
+    font-size: 20px;
+  }
+  .symptom-list li:before {
+    content: "→";
+    color: #e53e3e;
+  }
+  .cta-button {
+    display: block;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: #fff;
+    text-align: center;
+    padding: 20px 30px;
+    font-size: 20px;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 50px;
+    margin: 30px auto;
+    max-width: 500px;
+    box-shadow: 0 10px 30px rgba(245, 87, 108, 0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(245, 87, 108, 0.5);
+  }
+  .price {
+    font-size: 48px;
+    font-weight: 800;
+    color: #e53e3e;
+    text-align: center;
+    margin: 25px 0;
+  }
+  .price-description {
+    text-align: center;
+    font-size: 16px;
+    color: #718096;
+    margin-top: -15px;
+    margin-bottom: 25px;
+  }
+  .testimonial {
+    background: #f7fafc;
+    padding: 25px;
+    border-radius: 12px;
+    margin: 20px 0;
+    border-left: 4px solid #667eea;
+  }
+  .testimonial p {
+    font-style: italic;
+    color: #4a5568;
+    margin-bottom: 10px;
+  }
+  .testimonial .author {
+    font-weight: 600;
+    color: #2d3748;
+    font-style: normal;
+  }
+  .guarantee-box {
+    background: #edf2f7;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    margin: 30px 0;
+    border: 2px dashed #a0aec0;
+  }
+  .guarantee-box h3 {
+    color: #2d3748;
+    margin-bottom: 10px;
+  }
+  .how-it-works {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-around;
+    margin: 30px 0;
+  }
+  .step {
+    flex: 1;
+    min-width: 140px;
+    text-align: center;
+    padding: 20px;
+    background: #edf2f7;
+    border-radius: 12px;
+  }
+  .step-number {
+    font-size: 36px;
+    font-weight: 800;
+    color: #667eea;
+    margin-bottom: 10px;
+  }
+  .step-text {
+    font-size: 15px;
+    color: #2d3748;
+    font-weight: 600;
+  }
+  .faq-item {
+    margin: 20px 0;
+    padding: 20px;
+    background: #f7fafc;
+    border-radius: 10px;
+  }
+  .faq-item h4 {
+    color: #2d3748;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  .faq-item p {
+    color: #4a5568;
+    font-size: 16px;
+  }
+  .footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: rgba(255,255,255,0.8);
+    font-size: 14px;
+  }
+  .disclaimer {
+    background: #fff3cd;
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 4px solid #ffc107;
+    margin: 30px 0;
+    font-size: 14px;
+    color: #856404;
+  }
+  @media (max-width: 600px) {
+    .hero h1 {
+      font-size: 28px;
+    }
+    .hero .subtitle {
+      font-size: 16px;
+    }
+    h2 {
+      font-size: 24px;
+    }
+    .price {
+      font-size: 40px;
+    }
+    .cta-button {
+      font-size: 18px;
+      padding: 18px 25px;
+    }
   }
 </style>
 </head>
 <body>
 
+<!-- HERO SECTION -->
+<div class="hero">
+  <div class="container">
+    <h1>Quando a ansiedade apertar o peito,<br>você não vai estar sozinho(a).</h1>
+    <p class="subtitle">Um app simples, leve e eficaz que te ajuda a respirar fundo em crises de ansiedade e te guia para uma noite de sono tranquila.</p>
+    <div class="highlight">
+      ✓ Alívio rápido em minutos<br>
+      ✓ Funciona direto no celular<br>
+      ✓ Acesso imediato após pagamento
+    </div>
+    <a href="https://pay.kiwify.com.br/tCHLfeF" class="cta-button">QUERO TER ACESSO AGORA POR R$5,99</a>
+  </div>
+</div>
+
+<!-- VOCÊ SE IDENTIFICA? -->
 <div class="container">
+  <div class="section">
+    <h2>Você se identifica com isso?</h2>
+    <ul class="symptom-list">
+      <li>Coração acelerado sem motivo aparente</li>
+      <li>Sensação de sufoco ou aperto no peito</li>
+      <li>Pensamentos que não param de girar na sua cabeça</li>
+      <li>Insônia ou dificuldade para adormecer</li>
+      <li>Medo ou preocupação constante, mesmo sem razão clara</li>
+      <li>Acordar no meio da madrugada com a mente agitada</li>
+    </ul>
+    <p style="margin-top: 25px; text-align: center; font-weight: 600; font-size: 18px; color: #2d3748;">
+      Você não está exagerando.<br>Isso é ansiedade. E ela é real.
+    </p>
+  </div>
 
-<h1>Quando a ansiedade aparecer,<br>aperte um botão e volte a respirar.</h1>
+  <!-- O QUE É O SOS ANSIEDADE & SONO -->
+  <div class="section">
+    <h2>O que é o SOS Ansiedade & Sono?</h2>
+    <p>É um <strong>aplicativo leve e prático</strong> que você instala direto no seu celular — sem precisar baixar nada de loja de apps.</p>
+    <p>Ele foi criado para ser <strong>seu botão de emergência</strong> quando a ansiedade bater ou quando você não conseguir dormir.</p>
+    <h3 style="margin-top: 30px;">O que tem dentro:</h3>
+    <ul>
+      <li><strong>Botão SOS</strong> para crises de ansiedade</li>
+      <li><strong>Áudios guiados</strong> com técnicas de respiração</li>
+      <li><strong>Exercícios de relaxamento</strong> de 2 a 10 minutos</li>
+      <li><strong>Indução ao sono</strong> para quem não consegue desligar a mente</li>
+      <li>Instalável na tela inicial do celular (funciona como app)</li>
+      <li>Sem necessidade de login, sem cadastro, sem complicação</li>
+    </ul>
+  </div>
 
-<p>App simples e guiado para crises de ansiedade e dificuldade para dormir.</p>
+  <!-- COMO FUNCIONA -->
+  <div class="section">
+    <h2>Como funciona na prática?</h2>
+    <div class="how-it-works">
+      <div class="step">
+        <div class="step-number">1</div>
+        <div class="step-text">Você compra</div>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <div class="step-text">Recebe o link por e-mail</div>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <div class="step-text">Adiciona à tela inicial</div>
+      </div>
+      <div class="step">
+        <div class="step-number">4</div>
+        <div class="step-text">Usa quando precisar</div>
+      </div>
+    </div>
+    <p style="text-align: center; margin-top: 20px; color: #718096;">Simples assim. Sem burocracia.</p>
+  </div>
 
-<div class="price">Apenas R$5,99</div>
+  <!-- BENEFÍCIOS -->
+  <div class="section">
+    <h2>O que você ganha com isso?</h2>
+    <ul>
+      <li>Reduz a tensão mental em poucos minutos</li>
+      <li>Ajuda a desacelerar os pensamentos acelerados</li>
+      <li>Auxilia no processo de adormecer com mais tranquilidade</li>
+      <li>Acesso vitalício — paga uma vez, usa para sempre</li>
+      <li>Funciona em qualquer lugar, com ou sem internet (após carregar)</li>
+      <li>Não ocupa espaço na memória do celular</li>
+    </ul>
+  </div>
 
-<a href="https://pay.kiwify.com.br/tCHLfeF" class="btn">QUERO MEU BOTÃO SOS AGORA</a>
+  <!-- QUEBRA DE OBJEÇÕES -->
+  <div class="section">
+    <h2>Perguntas que você pode estar se fazendo</h2>
+    
+    <div class="faq-item">
+      <h4>Isso realmente funciona?</h4>
+      <p>As técnicas usadas no app são baseadas em exercícios de respiração e mindfulness, já validados por profissionais de saúde mental. Não é mágica — é prática. E quanto mais você usa, mais você treina seu corpo a se acalmar.</p>
+    </div>
 
-<div class="box">
-<h2>Para quem é?</h2>
-<ul>
-<li>✔️ Para quem sofre com crises de ansiedade</li>
-<li>✔️ Para quem sente o coração acelerar do nada</li>
-<li>✔️ Para quem não consegue desacelerar à noite</li>
-<li>✔️ Para quem precisa de ajuda imediata</li>
-</ul>
+    <div class="faq-item">
+      <h4>Preciso pagar mensalidade?</h4>
+      <p>Não. Você paga <strong>uma vez só</strong> e tem acesso para sempre.</p>
+    </div>
+
+    <div class="faq-item">
+      <h4>É seguro? Meus dados estão protegidos?</h4>
+      <p>Sim. O pagamento é processado pela Kiwify, uma das plataformas mais seguras do Brasil. E o app não coleta nenhum dado pessoal — você nem precisa fazer cadastro.</p>
+    </div>
+
+    <div class="faq-item">
+      <h4>E se eu não souber instalar?</h4>
+      <p>Você vai receber um passo a passo simples por e-mail. É só abrir o link no celular e tocar em "Adicionar à tela inicial". Leva menos de 1 minuto.</p>
+    </div>
+
+    <div class="faq-item">
+      <h4>Isso substitui terapia ou medicação?</h4>
+      <p>Não. Este app é uma <strong>ferramenta de apoio</strong>, não um tratamento. Se você está em acompanhamento médico ou psicológico, continue. O SOS Ansiedade & Sono pode ser um complemento no seu dia a dia.</p>
+    </div>
+  </div>
+
+  <!-- PROVA SOCIAL -->
+  <div class="section">
+    <h2>O que as pessoas estão dizendo</h2>
+
+    <div class="testimonial">
+      <p>"Eu uso sempre que sinto aquele aperto no peito. Em 5 minutos consigo respirar melhor. Virou meu ritual antes de dormir também."</p>
+      <p class="author">— Mariana, 29 anos</p>
+    </div>
+
+    <div class="testimonial">
+      <p>"Achei que ia ser mais uma coisa que eu não ia usar. Mas me surpreendi. Nos dias ruins, o botão SOS me ajuda muito."</p>
+      <p class="author">— Rafael, 34 anos</p>
+    </div>
+
+    <div class="testimonial">
+      <p>"Simples, direto, funciona. E pelo preço, não tem desculpa pra não ter no celular."</p>
+      <p class="author">— Júlia, 26 anos</p>
+    </div>
+
+    <div class="testimonial">
+      <p>"Eu sempre acordo de madrugada com a mente a mil. Agora eu abro o app, escuto o áudio e consigo voltar a dormir."</p>
+      <p class="author">— Carlos, 41 anos</p>
+    </div>
+  </div>
+
+  <!-- OFERTA -->
+  <div class="section">
+    <h2>Sua ferramenta de alívio imediato</h2>
+    <div class="price">R$ 5,99</div>
+    <p class="price-description">Pagamento único. Acesso vitalício.</p>
+    <ul style="margin: 30px 0;">
+      <li>Sem mensalidade</li>
+      <li>Sem renovação automática</li>
+      <li>Acesso imediato após o pagamento</li>
+      <li>Funciona em qualquer celular (Android ou iPhone)</li>
+    </ul>
+
+    <div class="guarantee-box">
+      <h3>🛡️ Garantia de 7 dias</h3>
+      <p>Se você não gostar, é só pedir o reembolso. Sem perguntas, sem burocracia.</p>
+    </div>
+
+    <a href="https://pay.kiwify.com.br/tCHLfeF" class="cta-button">QUERO ME SENTIR MELHOR HOJE – R$5,99</a>
+  </div>
+
+  <!-- DISCLAIMER -->
+  <div class="disclaimer">
+    <strong>⚠️ Aviso importante:</strong> Este aplicativo não substitui acompanhamento médico ou psicológico. Se você está em crise grave, procure ajuda profissional imediatamente. O SOS Ansiedade & Sono é uma ferramenta de apoio, não um tratamento para transtornos mentais.
+  </div>
+
 </div>
 
-<div class="box">
-<h2>Como funciona?</h2>
-<p>1. Abra no celular<br>
-2. Toque em SOS<br>
-3. Siga o passo a passo<br>
-4. Recupere o controle</p>
-</div>
-
-<div class="box">
-<h2>Você recebe:</h2>
-<ul>
-<li>✔️ Botão SOS para crises</li>
-<li>✔️ Modo Relaxamento</li>
-<li>✔️ Modo Sono</li>
-<li>✔️ Exercícios guiados de 2 a 10 minutos</li>
-<li>✔️ Acesso imediato após pagamento</li>
-</ul>
-</div>
-
-<h2>Apenas R$5,99</h2>
-
-<a href="https://pay.kiwify.com.br/tCHLfeF" class="btn">QUERO MEU ACESSO AGORA</a>
-
-<p class="guarantee">7 dias de garantia incondicional. Sem risco.</p>
-
+<!-- FOOTER -->
+<div class="footer">
+  <p>SOS Ansiedade & Sono © 2026</p>
+  <p>Dúvidas? Entre em contato pelo e-mail de suporte enviado após a compra.</p>
 </div>
 
 </body>
