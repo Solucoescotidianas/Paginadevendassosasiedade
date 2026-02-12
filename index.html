@@ -1,121 +1,333 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SOS Ansiedade – Respiração Guiada</title>
-<style>
-body {
-font-family: Arial, sans-serif;
-margin: 0;
-padding: 0;
-background: #f4f7f9;
-color: #333;
-text-align: center;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOS Ansiedade - Respire e Recupere o Controle</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-.container {
-padding: 20px;
-max-width: 600px;
-margin: auto;
-}
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+        }
 
-h1 {
-font-size: 26px;
-color: #1e3a5f;
-}
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 20px;
+        }
 
-h2 {
-font-size: 20px;
-margin-top: 30px;
-color: #1e3a5f;
-}
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 60px 20px 40px;
+        }
 
-p {
-font-size: 16px;
-line-height: 1.6;
-}
+        .hero h1 {
+            font-size: 2.5em;
+            color: #1565c0;
+            margin-bottom: 20px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
 
-.button {
-display: inline-block;
-margin: 20px 0;
-padding: 15px 25px;ackground: #1e88e5;
-color: #fff;
-text-decoration: none;
-font-weight: bold;
-border-radius: 8px;
-font-size: 18px;
-}
+        .hero p {
+            font-size: 1.3em;
+            color: #455a64;
+            margin-bottom: 30px;
+        }
 
-.button:hover {
-background: #1565c0;
-}
+        .cta-button {
+            display: inline-block;
+            background: #2e7d32;
+            color: white;
+            padding: 20px 40px;
+            font-size: 1.2em;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3);
+            margin: 10px 0;
+        }
 
-.box {
-background: #ffffff;
-padding: 15px;
-margin: 15px 0;
-border-radius: 10px;
-box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(46, 125, 50, 0.4);
+            background: #1b5e20;
+        }
 
-.footer {
-font-size: 12px;
-color: #777;
-margin-top: 30px;
-padding-bottom: 20px;
-}
-</style>
+        /* Sections */
+        section {
+            background: white;
+            padding: 40px 30px;
+            margin: 30px 0;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        h2 {
+            font-size: 2em;
+            color: #1565c0;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        h3 {
+            font-size: 1.4em;
+            color: #1976d2;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            color: #546e7a;
+        }
+
+        /* Pain Points */
+        .pain-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .pain-list li {
+            font-size: 1.15em;
+            padding: 12px 0;
+            color: #37474f;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .pain-list li:before {
+            content: "💔";
+            position: absolute;
+            left: 0;
+        }
+
+        /* Benefits */
+        .benefits-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .benefits-list li {
+            font-size: 1.15em;
+            padding: 12px 0;
+            color: #2e7d32;
+            padding-left: 30px;
+            position: relative;
+            font-weight: 500;
+        }
+
+        .benefits-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+            font-size: 1.3em;
+        }
+
+        /* Testimonials */
+        .testimonial {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #2e7d32;
+        }
+
+        .testimonial p {
+            font-style: italic;
+            color: #37474f;
+            margin-bottom: 10px;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: #1565c0;
+            font-size: 0.95em;
+        }
+
+        /* How it works */
+        .steps {
+            margin: 20px 0;
+        }
+
+        .step {
+            margin: 15px 0;
+            padding-left: 35px;
+            position: relative;
+        }
+
+        .step:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #2e7d32;
+            font-size: 1.5em;
+            font-weight: 700;
+        }
+
+        /* Guarantee */
+        .guarantee {
+            background: #fff3e0;
+            padding: 25px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 20px 0;
+            border: 2px solid #ff9800;
+        }
+
+        .guarantee p {
+            color: #e65100;
+            font-weight: 500;
+        }
+
+        /* CTA Sections */
+        .cta-section {
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.9em;
+            color: #78909c;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2em;
+            }
+
+            .hero p {
+                font-size: 1.1em;
+            }
+
+            .cta-button {
+                font-size: 1.1em;
+                padding: 18px 30px;
+            }
+
+            h2 {
+                font-size: 1.6em;
+            }
+
+            section {
+                padding: 30px 20px;
+            }
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="container">
+    <div class="container">
+        
+        <!-- Hero Section -->
+        <div class="hero">
+            <h1>Seu coração acelera do nada?</h1>
+            <p>Respire e ajude seu corpo a desacelerar em poucos minutos.</p>
+            <a href="https://pay.kiwify.com.br/tCHLfeF" class="cta-button">SIM, QUERO ACALMAR AGORA – R$5,99</a>
+        </div>
 
-<h1>Seu coração acelera do nada?</h1>
+        <!-- Pain Points Section -->
+        <section>
+            <h2>Você conhece essa sensação?</h2>
+            <ul class="pain-list">
+                <li>Coração acelerado sem motivo aparente</li>
+                <li>Sensação de sufoco e aperto no peito</li>
+                <li>Pensamentos acelerados que não param</li>
+                <li>Crises que aparecem do nada, quando menos espera</li>
+            </ul>
+            <p style="margin-top: 20px; font-weight: 500;">Se você já passou por isso, sabe o quanto é desesperador. A boa notícia é que existe uma forma simples de ajudar seu corpo a desacelerar.</p>
+        </section>
 
-<p><strong>Parece que você vai perder o controle?</strong></p>
+        <!-- How It Works -->
+        <section>
+            <h2>Como funciona o SOS Ansiedade?</h2>
+            <div class="steps">
+                <div class="step">
+                    <h3>Respiração guiada passo a passo</h3>
+                    <p>Um método simples e prático que você segue no seu próprio ritmo.</p>
+                </div>
+                <div class="step">
+                    <h3>Acesso imediato após o pagamento</h3>
+                    <p>Sem espera. Você compra e já pode usar na hora.</p>
+                </div>
+                <div class="step">
+                    <h3>Funciona direto no celular</h3>
+                    <p>Não precisa baixar nada. Use onde e quando precisar.</p>
+                </div>
+            </div>
+        </section>
 
-<p>O SOS Ansiedade é uma respiração guiada simples para ajudar seu corpo a sair do estado de alerta em poucos minutos.</p>
+        <!-- CTA 2 -->
+        <div class="cta-section">
+            <a href="https://pay.kiwify.com.br/tCHLfeF" class="cta-button">QUERO ACALMAR MINHA ANSIEDADE AGORA</a>
+        </div>
 
-<a class="button" href="https://pay.kiwify.com.br/tCHLfeF">SIM, QUERO ACALMAR AGORA – R$5,99</a>
+        <!-- Benefits -->
+        <section>
+            <h2>O que você vai conseguir:</h2>
+            <ul class="benefits-list">
+                <li>Reduzir a tensão corporal rapidamente</li>
+                <li>Ajudar a desacelerar pensamentos acelerados</li>
+                <li>Usar uma técnica simples e comprovada</li>
+                <li>Aplicar em qualquer lugar: casa, trabalho, transporte</li>
+            </ul>
+        </section>
 
-<div class="box">
-<h2>O que você recebe:</h2>
-<p>✔ Respiração guiada passo a passo</p>
-<p>✔ Técnica simples e eficaz</p>
-<p>✔ Acesso imediato após pagamento</p>
-<p>✔ Funciona direto no celular</p>
-</div>
+        <!-- Testimonials -->
+        <section>
+            <h2>Quem já usou, aprovou:</h2>
+            
+            <div class="testimonial">
+                <p>"Eu estava no trabalho quando senti meu coração disparar. Usei a respiração e em poucos minutos já estava melhor. Incrível!"</p>
+                <div class="testimonial-author">— Mariana S.</div>
+            </div>
 
-<div class="box">
-<h2>Para quem é:</h2>
-<p>• Quem sente ansiedade repentina</p>
-<p>• Quem tem coração acelerado sem motivo</p>
-<p>• Quem precisa de uma pausa imediata</p>
-</div>
+            <div class="testimonial">
+                <p>"Simples, rápido e funciona. Agora eu tenho algo prático pra usar quando a ansiedade aparece."</p>
+                <div class="testimonial-author">— Carlos R.</div>
+            </div>
 
-<a class="button" href="https://pay.kiwify.com.br/tCHLfeF">QUERO TER ACESSO AGORA</a>
+            <div class="testimonial">
+                <p>"Comprei sem esperar muito, mas me surpreendi. Realmente ajuda a desacelerar o corpo."</p>
+                <div class="testimonial-author">— Juliana P.</div>
+            </div>
+        </section>
 
-<div class="box">
-<h2>Depoimentos</h2>
-<p>"Usei durante uma crise no trabalho. Me ajudou a desacelerar." – Ana M.</p>
-<p>"Simples e direto. Funcionou para mim." – Carlos R.</p>
-<p>"É como ter um botão de emergência no celular." – Juliana S.</p>
-</div>
+        <!-- Guarantee -->
+        <section>
+            <div class="guarantee">
+                <h3>🛡️ Garantia de Satisfação</h3>
+                <p>Você pode solicitar reembolso através da plataforma caso não fique satisfeito.</p>
+            </div>
+        </section>
 
-<div class="box">
-<h2>Garantia</h2>
-<p>Se não fizer sentido para você, solicite reembolso dentro do prazo da plataforma.</p>
-</div>
+        <!-- Final CTA -->
+        <div class="cta-section">
+            <h2 style="margin-bottom: 20px;">Está pronto para ajudar seu corpo a desacelerar?</h2>
+            <a href="https://pay.kiwify.com.br/tCHLfeF" class="cta-button">SIM, QUERO O SOS ANSIEDADE POR R$5,99</a>
+        </div>
 
-<a class="button" href="https://pay.kiwify.com.br/tCHLfeF">SIM, QUERO ME SENTIR MELHOR AGORA</a>
+        <!-- Footer -->
+        <div class="footer">
+            <p><strong>Observação importante:</strong> Este produto não substitui acompanhamento médico ou psicológico. Se você tem crises frequentes de ansiedade, procure um profissional de saúde.</p>
+        </div>
 
-<p class="footer">
-Este produto não substitui acompanhamento médico ou psicológico.
-</p>
-
-</div>
+    </div>
 
 </body>
 </html>
