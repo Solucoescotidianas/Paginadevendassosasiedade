@@ -5,12 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SOS Ansiedade</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
 <style>
 body {
-  font-family: Arial, sans-serif;
   margin: 0;
-  background: #f4f4f8;
-  color: #222;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(180deg, #0f0c29, #302b63, #24243e);
+  color: white;
 }
 
 .container {
@@ -20,22 +22,21 @@ body {
 }
 
 h1 {
-  font-size: 26px;
+  font-size: 30px;
   line-height: 1.3;
 }
 
 h2 {
-  font-size: 18px;
-  color: #666;
-  font-weight: normal;
+  font-weight: 400;
+  color: #cfcfff;
 }
 
-.box {
-  background: #fff;
-  padding: 15px;
-  border-radius: 10px;
+.card {
+  background: rgba(255,255,255,0.05);
+  padding: 18px;
+  border-radius: 14px;
   margin: 20px 0;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  backdrop-filter: blur(10px);
 }
 
 ul {
@@ -48,53 +49,63 @@ li {
 
 .cta {
   display: block;
-  background: #7B3FE4;
-  color: white;
+  background: linear-gradient(90deg, #a855f7, #7c3aed);
   text-align: center;
   padding: 18px;
-  font-size: 18px;
-  border-radius: 10px;
-  text-decoration: none;
+  border-radius: 12px;
   font-weight: bold;
-  margin: 20px 0;
+  text-decoration: none;
+  color: white;
+  margin: 25px 0;
+  font-size: 18px;
+  box-shadow: 0 10px 30px rgba(168,85,247,0.4);
+  transition: 0.3s;
 }
 
 .cta:hover {
-  background: #692fd1;
+  transform: scale(1.05);
 }
 
-.fixed-cta {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background: #7B3FE4;
-  color: white;
-  text-align: center;
-  padding: 15px;
-  font-weight: bold;
-  text-decoration: none;
-  font-size: 16px;
+.badge {
+  background: rgba(255,255,255,0.1);
+  padding: 8px 12px;
+  border-radius: 8px;
+  display: inline-block;
+  font-size: 13px;
+  margin-bottom: 10px;
 }
 
 .timer {
   text-align: center;
   font-size: 14px;
-  margin: 10px 0;
-  color: #888;
+  color: #aaa;
 }
 
-.highlight {
+.fixed-cta {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #7c3aed;
+  text-align: center;
+  padding: 15px;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+}
+
+.mockup {
+  background: linear-gradient(135deg, #a855f7, #7c3aed);
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  margin: 20px 0;
   font-weight: bold;
 }
 
-.badge {
-  background: #e9ddff;
-  padding: 8px;
-  border-radius: 6px;
-  font-size: 13px;
-  margin-bottom: 10px;
-  display: inline-block;
+.social-proof {
+  font-size: 14px;
+  color: #ccc;
+  margin-top: 10px;
 }
 </style>
 
@@ -118,45 +129,42 @@ function startTimer() {
 
 <div class="container">
 
-<div class="badge">⚠️ Método usado por pessoas em momentos de crise mental</div>
+<div class="badge">⚠️ Para momentos de ansiedade real</div>
 
 <h1>Sua mente não para… nem quando você deita?</h1>
 
 <h2>Existe uma forma simples de desacelerar em até 10 minutos.</h2>
 
-<div class="box">
-<ul>
-<li>você pensa demais</li>
-<li>sua cabeça não desliga</li>
-<li>você revive tudo várias vezes</li>
-<li>você se sente sobrecarregado</li>
-<li>você não consegue relaxar</li>
-</ul>
+<div class="mockup">
+📱 SOS Ansiedade<br>
+PDF + Mentor IA + Acesso imediato
 </div>
-
-<p>E isso cansa… muito.</p>
-
-<p class="highlight">O problema não é você.</p>
-
-<p>Ninguém nunca te ensinou a interromper isso.</p>
-
-<h2>SOS Ansiedade</h2>
-
-<p>É como um botão de emergência para sua mente.</p>
-
-<p>Você usa… e sente alívio.</p>
 
 <a class="cta" href="https://pay.kiwify.com.br/tCHLfeF">
 👉 QUERO ACALMAR MINHA MENTE AGORA
 </a>
 
 <div class="timer">
-⏳ Oferta disponível por: <span id="timer"></span>
+⏳ Oferta termina em: <span id="timer"></span>
 </div>
 
-<h2>Como funciona</h2>
+<div class="card">
+<ul>
+<li>você pensa demais</li>
+<li>sua cabeça não desliga</li>
+<li>você se sente sobrecarregado</li>
+<li>você não consegue relaxar</li>
+</ul>
+</div>
 
-<div class="box">
+<p>Isso não é falta de controle.</p>
+<p><strong>Ninguém te ensinou a parar isso.</strong></p>
+
+<h2>É aqui que entra o SOS Ansiedade</h2>
+
+<p>Funciona como um botão de emergência mental.</p>
+
+<div class="card">
 <ul>
 <li>Abra</li>
 <li>Siga</li>
@@ -166,7 +174,7 @@ function startTimer() {
 
 <h2>Você recebe</h2>
 
-<div class="box">
+<div class="card">
 <ul>
 <li>PDF direto ao ponto</li>
 <li>Mentor IA que te guia</li>
@@ -177,35 +185,31 @@ function startTimer() {
 
 <h2>Resultado</h2>
 
-<div class="box">
+<div class="card">
 <ul>
 <li>mente desacelera</li>
+<li>alívio imediato</li>
 <li>menos pensamentos</li>
 <li>mais controle</li>
-<li>alívio real</li>
 </ul>
 </div>
 
-<h2>E se não funcionar?</h2>
-
-<p>Você só precisa testar.</p>
-
-<h2>E se eu travar?</h2>
-
-<p>O Mentor IA te guia.</p>
-
 <a class="cta" href="https://pay.kiwify.com.br/tCHLfeF">
-👉 PRECISO DISSO AGORA
+🔥 ACESSAR AGORA
 </a>
 
-<p style="text-align:center; font-size:14px; color:#777;">
-Acesso imediato • Sem mensalidade • Uso imediato
+<div class="social-proof">
++3.000 pessoas já usaram em momentos de ansiedade
+</div>
+
+<p style="text-align:center; font-size:13px; color:#aaa;">
+Acesso imediato • Sem mensalidade
 </p>
 
 </div>
 
 <a class="fixed-cta" href="https://pay.kiwify.com.br/tCHLfeF">
-🔥 ACESSAR AGORA
+👉 COMEÇAR AGORA
 </a>
 
 </body>
