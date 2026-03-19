@@ -1,22 +1,171 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página de Vendas</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SOS Mente Acelerada</title>
+
+<!-- META PIXEL -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+
+fbq('init', '4229723683907206');
+fbq('track', 'PageView');
+</script>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial;
+  background: linear-gradient(180deg, #f7f5f2, #efe9ff);
+  color: #333;
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.box {
+  background: white;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  margin-bottom: 25px;
+}
+
+h1 {
+  font-size: 30px;
+}
+
+.subtitle {
+  opacity: 0.8;
+  margin-bottom: 20px;
+}
+
+.btn {
+  display: block;
+  padding: 18px;
+  background: #a78bfa;
+  color: white;
+  text-decoration: none;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+.btn:hover {
+  background: #8b5cf6;
+}
+
+.floating {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #a78bfa;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+</style>
+
 </head>
+
 <body>
-    <div class="box">
-        <h1>📦 O que você recebe</h1>
-        <p>Alguma descrição sobre o que o cliente vai receber.</p>
-    </div>
-    <div class="box">
-        <h2>🤖 Mentor Serenity (Typebot)</h2>
-        <iframe title="Typebot" src="https://typebot.co/mentor-serenity-w5dq0qm" style="border: none; width: 100%; height: 600px"></iframe>
-    </div>
-    <div class="box">
-        <h1>💰 Preço</h1>
-        <p>Alguma descrição sobre preços.</p>
-    </div>
+
+<div class="container">
+
+<h1>🧠 Sua mente não para?</h1>
+<p class="subtitle">
+Pensamentos acelerados, ansiedade e sobrecarga todos os dias…
+</p>
+
+<div class="box">
+<p>
+Você deita… mas sua cabeça continua a mil.<br><br>
+
+<b>Respira.</b><br><br>
+
+Você não precisa resolver tudo agora.
+</p>
+</div>
+
+<div class="box">
+<h2>⚡ SOS Mente Acelerada</h2>
+
+<p>
+Método simples de 10 minutos para desacelerar sua mente e recuperar o controle emocional.
+</p>
+
+<a class="btn" 
+href="https://pay.kiwify.com.br/rpnTNTQ"
+onclick="fbq('track', 'InitiateCheckout');">
+QUERO DESACELERAR MINHA MENTE
+</a>
+
+<p style="font-size:14px;">Acesso imediato</p>
+</div>
+
+<div class="box">
+<h2>📦 O que você recebe</h2>
+<p>✔ Protocolo SOS (PDF)</p>
+<p>✔ Mentor Serenity (IA)</p>
+<p>✔ Kit Socorro Imediato</p>
+</div>
+
+<!-- CHATBOT -->
+<div class="box">
+<h2>💬 Fale com o Mentor Serenity</h2>
+<p>Receba ajuda imediata para acalmar sua mente.</p>
+
+<iframe
+  title="Mentor Serenity"
+  src="https://typebot.co/mentor-serenity-w5dq0qm"
+  style="
+    border: none;
+    width: 100%;
+    height: 600px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  ">
+</iframe>
+
+<a href="https://pay.kiwify.com.br/rpnTNTQ" class="btn">
+QUERO COMEÇAR AGORA
+</a>
+
+</div>
+
+<div class="box">
+<p>
+Imagine deitar…<br>
+e finalmente conseguir descansar.<br><br>
+
+Sem ansiedade.<br>
+Sem pensamentos te puxando.<br><br>
+
+<b>Sua mente mais leve começa agora.</b>
+</p>
+</div>
+
+</div>
+
+<!-- BOTÃO FLUTUANTE -->
+<a href="https://typebot.co/mentor-serenity-w5dq0qm" target="_blank" class="floating">
+💬 Falar com o Mentor
+</a>
+
 </body>
 </html>
