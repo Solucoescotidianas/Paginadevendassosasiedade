@@ -1,457 +1,95 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SOS Ansiedade</title>
+  <meta charset="UTF-8">
+  <title>SOS Mente Acelerada</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)
+  }(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
 
-<style>
-body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  background: linear-gradient(180deg, #0f0c29, #302b63, #24243e);
-  color: white;
-}
+  fbq('init', '4229723683907206');
+  fbq('track', 'PageView');
+  </script>
 
-.container {
-  max-width: 600px;
-  margin: auto;
-  padding: 20px;
-}
+  <noscript>
+  <img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=4229723683907206&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- End Meta Pixel Code -->
 
-h1 {
-  font-size: 30px;
-  line-height: 1.3;
-}
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      padding: 20px;
+      background-color: #f7f5f2;
+      color: #333;
+    }
 
-h2 {
-  font-weight: 400;
-  color: #cfcfff;
-}
+    h1 {
+      font-size: 28px;
+    }
 
-.card {
-  background: rgba(255,255,255,0.05);
-  padding: 18px;
-  border-radius: 14px;
-  margin: 20px 0;
-  backdrop-filter: blur(10px);
-}
+    .box {
+      max-width: 500px;
+      margin: auto;
+    }
 
-ul {
-  padding-left: 20px;
-}
-
-li {
-  margin-bottom: 8px;
-}
-
-.cta {
-  display: block;
-  background: linear-gradient(90deg, #a855f7, #7c3aed);
-  text-align: center;
-  padding: 18px;
-  border-radius: 12px;
-  font-weight: bold;
-  text-decoration: none;
-  color: white;
-  margin: 25px 0;
-  font-size: 18px;
-  box-shadow: 0 10px 30px rgba(168,85,247,0.4);
-  transition: 0.3s;
-}
-
-.cta:hover {
-  transform: scale(1.05);
-}
-
-.badge {
-  background: rgba(255,255,255,0.1);
-  padding: 8px 12px;
-  border-radius: 8px;
-  display: inline-block;
-  font-size: 13px;
-  margin-bottom: 10px;
-}
-
-.timer {
-  text-align: center;
-  font-size: 14px;
-  color: #aaa;
-}
-
-.fixed-cta {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background: #7c3aed;
-  text-align: center;
-  padding: 15px;
-  font-weight: bold;
-  text-decoration: none;
-  color: white;
-}
-
-.mockup {
-  background: linear-gradient(135deg, #a855f7, #7c3aed);
-  border-radius: 15px;
-  padding: 20px;
-  text-align: center;
-  margin: 20px 0;
-  font-weight: bold;
-}
-
-.social-proof {
-  font-size: 14px;
-  color: #ccc;
-  margin-top: 10px;
-}
-</style>
-
-<script>
-let time = 600;
-function startTimer() {
-  let timer = document.getElementById("timer");
-  setInterval(() => {
-    let minutes = Math.floor(time / 60);
-    let seconds = time % 60;
-    timer.innerHTML = minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
-    time--;
-    if (time < 0) time = 0;
-  }, 1000);
-}
-</script>
-
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '4229723683907206');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=4229723683907206&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
-
-<script>
-function trackLead() {
-  if (typeof fbq === "function") {
-    fbq('track', 'Lead');
-  }
-}
-</script>
-
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 15px 25px;
+      background-color: #a78bfa;
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: bold;
+    }
+  </style>
 </head>
 
-<body onload="startTimer()">
+<body>
+  <div class="box">
 
-<div class="container">
+    <h1>🧠 Sua mente não para?</h1>
 
-<div class="badge">⚠️ Para momentos de ansiedade real</div>
+    <p>
+      Você pensa demais…<br>
+      se sente sobrecarregada…<br>
+      e não consegue relaxar?
+    </p>
 
-<h1>Sua mente não para… nem quando você deita?</h1>
+    <p>
+      <b>Respira.</b><br>
+      Você não precisa resolver tudo agora.
+    </p>
 
-<h2>Existe uma forma simples de desacelerar em até 10 minutos.</h2>
+    <h2>⚡ SOS Mente Acelerada</h2>
 
-<div class="mockup">
-📱 SOS Ansiedade<br>
-PDF + Mentor IA + Acesso imediato
-</div>
+    <p>
+      Método simples de 10 minutos<br>
+      para desacelerar sua mente<br>
+      e reduzir a ansiedade.
+    </p>
 
-<a class="cta" href="https://pay.kiwify.com.br/rpnTNTQ" onclick="trackLead()">
-👉 QUERO ACALMAR MINHA MENTE AGORA
-</a>
+    <h3>💰 De R$97 por R$27</h3>
 
-<div class="timer">
-⏳ Oferta termina em: <span id="timer"></span>
-</div>
+    <a class="btn" 
+       href="SEU_LINK_KIWIFY_AQUI"
+       onclick="fbq('track', 'InitiateCheckout');">
+       QUERO DESACELERAR MINHA MENTE
+    </a>
 
-<div class="card">
-<ul>
-<li>você pensa demais</li>
-<li>sua cabeça não desliga</li>
-<li>você se sente sobrecarregado</li>
-<li>você não consegue relaxar</li>
-</ul>
-</div>
-
-<p>Isso não é falta de controle.</p>
-<p><strong>Ninguém te ensinou a parar isso.</strong></p>
-
-<h2>É aqui que entra o SOS Ansiedade</h2>
-
-<p>Funciona como um botão de emergência mental.</p>
-
-<div class="card">
-<ul>
-<li>Abra</li>
-<li>Siga</li>
-<li>Sinta o alívio</li>
-</ul>
-</div>
-
-<h2>Você recebe</h2>
-
-<div class="card">
-<ul>
-<li>PDF direto ao ponto</li>
-<li>Mentor IA que te guia</li>
-<li>Página interativa</li>
-<li>Técnicas rápidas</li>
-</ul>
-</div>
-
-<h2>Resultado</h2>
-
-<div class="card">
-<ul>
-<li>mente desacelera</li>
-<li>alívio imediato</li>
-<li>menos pensamentos</li>
-<li>mais controle</li>
-</ul>
-</div>
-
-<a class="cta" href="https://pay.kiwify.com.br/rpnTNTQ" onclick="trackLead()">
-🔥 ACESSAR AGORA
-</a>
-
-<div class="social-proof">
-+3.000 pessoas já usaram em momentos de ansiedade
-</div>
-
-<p style="text-align:center; font-size:13px; color:#aaa;">
-Acesso imediato • Sem mensalidade
-</p>
-
-</div>
-
-<a class="fixed-cta" href="https://pay.kiwify.com.br/rpnTNTQ" onclick="trackLead()">
-👉 COMEÇAR AGORA
-</a>
-
-</body>
-</html><!DOCTYPE html>
-<html lang="pt-br">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SOS Ansiedade</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-<style>
-body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  background: linear-gradient(180deg, #0f0c29, #302b63, #24243e);
-  color: white;
-}
-
-.container {
-  max-width: 600px;
-  margin: auto;
-  padding: 20px;
-}
-
-h1 {
-  font-size: 30px;
-  line-height: 1.3;
-}
-
-h2 {
-  font-weight: 400;
-  color: #cfcfff;
-}
-
-.card {
-  background: rgba(255,255,255,0.05);
-  padding: 18px;
-  border-radius: 14px;
-  margin: 20px 0;
-  backdrop-filter: blur(10px);
-}
-
-ul {
-  padding-left: 20px;
-}
-
-li {
-  margin-bottom: 8px;
-}
-
-.cta {
-  display: block;
-  background: linear-gradient(90deg, #a855f7, #7c3aed);
-  text-align: center;
-  padding: 18px;
-  border-radius: 12px;
-  font-weight: bold;
-  text-decoration: none;
-  color: white;
-  margin: 25px 0;
-  font-size: 18px;
-  box-shadow: 0 10px 30px rgba(168,85,247,0.4);
-  transition: 0.3s;
-}
-
-.cta:hover {
-  transform: scale(1.05);
-}
-
-.badge {
-  background: rgba(255,255,255,0.1);
-  padding: 8px 12px;
-  border-radius: 8px;
-  display: inline-block;
-  font-size: 13px;
-  margin-bottom: 10px;
-}
-
-.timer {
-  text-align: center;
-  font-size: 14px;
-  color: #aaa;
-}
-
-.fixed-cta {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background: #7c3aed;
-  text-align: center;
-  padding: 15px;
-  font-weight: bold;
-  text-decoration: none;
-  color: white;
-}
-
-.mockup {
-  background: linear-gradient(135deg, #a855f7, #7c3aed);
-  border-radius: 15px;
-  padding: 20px;
-  text-align: center;
-  margin: 20px 0;
-  font-weight: bold;
-}
-
-.social-proof {
-  font-size: 14px;
-  color: #ccc;
-  margin-top: 10px;
-}
-</style>
-
-<script>
-let time = 600;
-function startTimer() {
-  let timer = document.getElementById("timer");
-  setInterval(() => {
-    let minutes = Math.floor(time / 60);
-    let seconds = time % 60;
-    timer.innerHTML = minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
-    time--;
-    if (time < 0) time = 0;
-  }, 1000);
-}
-</script>
-
-</head>
-
-<body onload="startTimer()">
-
-<div class="container">
-
-<div class="badge">⚠️ Para momentos de ansiedade real</div>
-
-<h1>Sua mente não para… nem quando você deita?</h1>
-
-<h2>Existe uma forma simples de desacelerar em até 10 minutos.</h2>
-
-<div class="mockup">
-📱 SOS Ansiedade<br>
-PDF + Mentor IA + Acesso imediato
-</div>
-
-<a class="cta" href="https://pay.kiwify.com.br/rpnTNTQ">
-👉 QUERO ACALMAR MINHA MENTE AGORA
-</a>
-
-<div class="timer">
-⏳ Oferta termina em: <span id="timer"></span>
-</div>
-
-<div class="card">
-<ul>
-<li>você pensa demais</li>
-<li>sua cabeça não desliga</li>
-<li>você se sente sobrecarregado</li>
-<li>você não consegue relaxar</li>
-</ul>
-</div>
-
-<p>Isso não é falta de controle.</p>
-<p><strong>Ninguém te ensinou a parar isso.</strong></p>
-
-<h2>É aqui que entra o SOS Ansiedade</h2>
-
-<p>Funciona como um botão de emergência mental.</p>
-
-<div class="card">
-<ul>
-<li>Abra</li>
-<li>Siga</li>
-<li>Sinta o alívio</li>
-</ul>
-</div>
-
-<h2>Você recebe</h2>
-
-<div class="card">
-<ul>
-<li>PDF direto ao ponto</li>
-<li>Mentor IA que te guia</li>
-<li>Página interativa</li>
-<li>Técnicas rápidas</li>
-</ul>
-</div>
-
-<h2>Resultado</h2>
-
-<div class="card">
-<ul>
-<li>mente desacelera</li>
-<li>alívio imediato</li>
-<li>menos pensamentos</li>
-<li>mais controle</li>
-</ul>
-</div>
-
-<a class="cta" href="https://pay.kiwify.com.br/rpnTNTQ">
-🔥 ACESSAR AGORA
-</a>
-
-<div class="social-proof">
-+3.000 pessoas já usaram em momentos de ansiedade
-</div>
-
-<p style="text-align:center; font-size:13px; color:#aaa;">
-Acesso imediato • Sem mensalidade
-</p>
-
-</div>
-
-<a class="fixed-cta" href="https://pay.kiwify.com.br/rpnTNTQ">
-👉 COMEÇAR AGORA
-</a>
-
+  </div>
 </body>
 </html>
