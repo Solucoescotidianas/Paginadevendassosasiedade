@@ -1,187 +1,372 @@
-    <!DOCTYPE html>
-<html lang="pt-br">
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SOS Mente Acelerada</title>
-
-<!-- META PIXEL -->
-<script>
-!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-
-fbq('init', '4229723683907206');
-fbq('track', 'PageView');
-</script>
-
+<title>SOS Mente Acelerada — Pare os Pensamentos em 10 Minutos</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-body {
-  margin: 0;
-  font-family: Arial;
-  background: linear-gradient(180deg, #f7f5f2, #efe9ff);
-  color: #333;
-}
+  :root {
+    --bg:       #f5f3f8;
+    --bg2:      #ede9f4;
+    --white:    #ffffff;
+    --purple:   #7b5ea7;
+    --purple2:  #9b7ecb;
+    --lavender: #b39ddb;
+    --lilac:    #d6c9ee;
+    --soft:     #ece7f6;
+    --brown:    #8b6b4a;
+    --brown-l:  #c4a882;
+    --text:     #3d3050;
+    --muted:    #8e84a3;
+    --shadow:   rgba(123,94,167,0.12);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Nunito', sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+  .blob { position:fixed; border-radius:50%; filter:blur(80px); pointer-events:none; z-index:0; opacity:0.3; }
+  .blob-1 { width:500px; height:500px; background:var(--lilac); top:-150px; right:-100px; }
+  .blob-2 { width:400px; height:400px; background:#f0e6d3; bottom:200px; left:-150px; }
 
-.container {
-  max-width: 600px;
-  margin: auto;
-  padding: 30px 20px;
-  text-align: center;
-}
+  .container { max-width:680px; margin:0 auto; padding:0 24px; position:relative; z-index:1; }
 
-.box {
-  background: white;
-  padding: 25px;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-  margin-bottom: 25px;
-}
+  /* TIMER */
+  .timer-bar {
+    background: linear-gradient(90deg, var(--purple), var(--purple2));
+    padding:11px 24px; text-align:center;
+    font-size:13px; color:#fff; font-weight:500; letter-spacing:0.03em;
+    position:relative; z-index:10;
+  }
+  #countdown {
+    font-weight:700; font-variant-numeric:tabular-nums;
+    background:rgba(255,255,255,0.2); padding:2px 10px; border-radius:20px; margin:0 4px;
+  }
 
-h1 {
-  font-size: 30px;
-}
+  /* HERO */
+  .hero { padding:64px 0 40px; text-align:center; }
+  .badge {
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--soft); border:1px solid var(--lilac); border-radius:100px;
+    padding:6px 18px; font-size:12px; color:var(--purple);
+    letter-spacing:0.08em; text-transform:uppercase; font-weight:600;
+    margin-bottom:28px; animation:fadeUp 0.6s ease both;
+  }
+  .hero h1 {
+    font-family:'Playfair Display', serif; font-size:clamp(36px,8vw,56px);
+    font-weight:700; color:var(--purple); line-height:1.15;
+    margin-bottom:20px; animation:fadeUp 0.6s 0.1s ease both;
+  }
+  .hero h1 em { font-style:italic; color:var(--brown); }
+  .hero p {
+    font-size:17px; color:var(--muted); max-width:480px;
+    margin:0 auto 36px; animation:fadeUp 0.6s 0.2s ease both;
+  }
+  .mockup-wrap {
+    margin:0 auto 36px; max-width:340px;
+    animation:fadeUp 0.6s 0.15s ease both;
+  }
+  .mockup-wrap img { width:100%; border-radius:20px; box-shadow:0 20px 60px var(--shadow); }
 
-.subtitle {
-  opacity: 0.8;
-  margin-bottom: 20px;
-}
+  /* PRICE CARD */
+  .price-card {
+    background:var(--white); border:1.5px solid var(--lilac); border-radius:28px;
+    padding:40px 32px; text-align:center; margin:0 auto 56px; max-width:400px;
+    box-shadow:0 12px 48px var(--shadow); animation:fadeUp 0.6s 0.3s ease both;
+    position:relative; overflow:hidden;
+  }
+  .price-card::before {
+    content:''; position:absolute; top:0; left:0; right:0; height:4px;
+    background:linear-gradient(90deg,var(--lavender),var(--brown-l),var(--lavender));
+  }
+  .price-tag {
+    display:inline-block; background:var(--soft); color:var(--purple);
+    font-size:12px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase;
+    padding:4px 14px; border-radius:100px; margin-bottom:16px;
+  }
+  .price-old { font-size:15px; color:var(--muted); text-decoration:line-through; margin-bottom:2px; }
+  .price-new {
+    font-family:'Playfair Display',serif; font-size:60px;
+    font-weight:700; color:var(--brown); line-height:1; margin-bottom:6px;
+  }
+  .price-note { font-size:13px; color:var(--muted); margin-bottom:28px; }
+  .cta-btn {
+    display:block; width:100%;
+    background:linear-gradient(135deg,var(--purple) 0%,var(--purple2) 100%);
+    color:#fff; font-family:'Nunito',sans-serif; font-weight:700; font-size:16px;
+    padding:18px 32px; border-radius:16px; text-decoration:none;
+    transition:transform 0.2s,box-shadow 0.2s;
+    box-shadow:0 8px 28px rgba(123,94,167,0.3);
+  }
+  .cta-btn:hover { transform:translateY(-2px); box-shadow:0 14px 36px rgba(123,94,167,0.4); }
+  .guarantee {
+    display:flex; align-items:center; justify-content:center;
+    gap:8px; font-size:12px; color:var(--muted); margin-top:16px;
+  }
 
-.btn {
-  display: block;
-  padding: 18px;
-  background: #a78bfa;
-  color: white;
-  text-decoration: none;
-  border-radius: 12px;
-  font-size: 18px;
-  font-weight: bold;
-  margin-top: 15px;
-}
+  /* SECTIONS */
+  .section { padding:60px 0; border-top:1px solid var(--bg2); }
+  .section-label {
+    font-size:11px; letter-spacing:0.15em; text-transform:uppercase;
+    color:var(--brown); font-weight:600; margin-bottom:12px;
+  }
+  .section h2 {
+    font-family:'Playfair Display',serif; font-size:clamp(24px,5vw,36px);
+    font-weight:700; color:var(--purple); line-height:1.25; margin-bottom:32px;
+  }
+  .section h2 em { font-style:italic; color:var(--brown); }
 
-.btn:hover {
-  background: #8b5cf6;
-}
+  /* SYMPTOMS */
+  .symptom-list { list-style:none; display:flex; flex-direction:column; gap:12px; }
+  .symptom-list li {
+    display:flex; align-items:flex-start; gap:14px;
+    background:var(--white); border:1px solid var(--lilac); border-radius:16px;
+    padding:16px 20px; font-size:15px; box-shadow:0 2px 12px var(--shadow);
+  }
+  .symptom-list li .icon { font-size:20px; flex-shrink:0; margin-top:2px; }
 
-.price-box {
-  margin-top: 15px;
-}
+  /* DELIVERABLES */
+  .deliverables { display:flex; flex-direction:column; gap:14px; }
+  .deliverable-card {
+    background:var(--white); border:1px solid var(--lilac); border-radius:20px;
+    padding:24px; display:flex; gap:18px; align-items:flex-start;
+    box-shadow:0 2px 16px var(--shadow); transition:transform 0.2s,box-shadow 0.2s;
+  }
+  .deliverable-card:hover { transform:translateY(-2px); box-shadow:0 8px 28px var(--shadow); }
+  .deliverable-icon {
+    font-size:26px; flex-shrink:0; width:52px; height:52px;
+    display:flex; align-items:center; justify-content:center;
+    background:var(--soft); border-radius:14px;
+  }
+  .deliverable-card h3 {
+    font-family:'Playfair Display',serif; font-size:17px;
+    font-weight:700; color:var(--purple); margin-bottom:6px;
+  }
+  .deliverable-card p { font-size:14px; color:var(--muted); line-height:1.6; }
 
-.old {
-  text-decoration: line-through;
-  opacity: 0.6;
-}
+  /* TESTIMONIALS */
+  .testimonials { display:flex; flex-direction:column; gap:14px; }
+  .testimonial {
+    background:var(--white); border:1px solid var(--lilac); border-radius:20px;
+    padding:24px; box-shadow:0 2px 16px var(--shadow); position:relative;
+  }
+  .testimonial::after {
+    content:'❝'; position:absolute; top:14px; right:20px;
+    font-size:48px; color:var(--lilac); line-height:1;
+  }
+  .stars { color:#f5a623; font-size:14px; margin-bottom:10px; }
+  .testimonial-text { font-size:15px; line-height:1.7; margin-bottom:16px; }
+  .testimonial-author { display:flex; align-items:center; gap:12px; }
+  .avatar {
+    width:38px; height:38px; border-radius:50%;
+    background:linear-gradient(135deg,var(--lavender),var(--brown-l));
+    display:flex; align-items:center; justify-content:center;
+    font-size:13px; font-weight:700; color:#fff;
+  }
+  .author-info .name { font-size:13px; font-weight:600; }
+  .author-info .role { font-size:12px; color:var(--muted); }
 
-.price {
-  font-size: 36px;
-  font-weight: bold;
-  color: #8b5cf6;
-}
+  /* FAQ */
+  .faq-list { display:flex; flex-direction:column; gap:10px; }
+  .faq-item {
+    background:var(--white); border:1px solid var(--lilac);
+    border-radius:16px; overflow:hidden; box-shadow:0 2px 10px var(--shadow);
+  }
+  .faq-question {
+    width:100%; background:none; border:none; color:var(--text);
+    font-family:'Nunito',sans-serif; font-size:15px; font-weight:600;
+    padding:18px 22px; text-align:left; cursor:pointer;
+    display:flex; justify-content:space-between; align-items:center; gap:16px;
+  }
+  .faq-question .chevron { font-size:16px; color:var(--purple); transition:transform 0.3s; flex-shrink:0; }
+  .faq-answer {
+    max-height:0; overflow:hidden; transition:max-height 0.3s ease,padding 0.3s;
+    font-size:14px; color:var(--muted); line-height:1.7; padding:0 22px;
+  }
+  .faq-item.open .faq-answer { max-height:200px; padding:0 22px 18px; }
+  .faq-item.open .chevron { transform:rotate(180deg); }
 
-.floating {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #a78bfa;
-  color: white;
-  padding: 15px 20px;
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: bold;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
+  /* FINAL CTA */
+  .final-cta { padding:80px 0; text-align:center; }
+  .final-cta h2 {
+    font-family:'Playfair Display',serif; font-size:clamp(28px,6vw,42px);
+    font-weight:700; color:var(--purple); line-height:1.2; margin-bottom:14px;
+  }
+  .final-cta h2 em { font-style:italic; color:var(--brown); }
+  .final-cta p { font-size:16px; color:var(--muted); margin-bottom:36px; }
+  .cta-btn-large {
+    display:inline-block;
+    background:linear-gradient(135deg,var(--purple) 0%,var(--purple2) 100%);
+    color:#fff; font-family:'Nunito',sans-serif; font-weight:700; font-size:17px;
+    padding:20px 52px; border-radius:18px; text-decoration:none;
+    transition:transform 0.2s,box-shadow 0.2s;
+    box-shadow:0 10px 36px rgba(123,94,167,0.35); margin-bottom:20px;
+  }
+  .cta-btn-large:hover { transform:translateY(-3px); box-shadow:0 18px 48px rgba(123,94,167,0.45); }
+  .footer-note { font-size:12px; color:var(--muted); }
+
+  @keyframes fadeUp {
+    from { opacity:0; transform:translateY(18px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+  .reveal { opacity:0; transform:translateY(24px); transition:opacity 0.6s ease,transform 0.6s ease; }
+  .reveal.visible { opacity:1; transform:translateY(0); }
 </style>
-
 </head>
-
 <body>
+
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+
+<div class="timer-bar">
+  ⏳ Oferta especial encerra em <span id="countdown">15:00</span> — De R$97 por apenas <strong>R$27</strong>
+</div>
 
 <div class="container">
 
-<h1>🧠 Sua mente não para?</h1>
-<p class="subtitle">
-Pensamentos acelerados, ansiedade e sobrecarga todos os dias…
-</p>
+  <section class="hero">
+    <div class="badge">🧠 Método de regulação emocional</div>
+    <h1>Sua mente não para?<br><em>Pare em 10 minutos.</em></h1>
+    <p>Pensamentos acelerados, ansiedade e sobrecarga não precisam ser o seu normal. Existe um caminho mais leve.</p>
+    <div class="mockup-wrap">
+      <img src="ChatGPT_Image_18_mar_2026__17_12_51.png" alt="SOS Mente Acelerada">
+    </div>
+    <div class="price-card">
+      <div class="price-tag">✨ Oferta por tempo limitado</div>
+      <div class="price-old">De R$97,00</div>
+      <div class="price-new">R$27</div>
+      <div class="price-note">Acesso imediato · Uso vitalício · Sem mensalidade</div>
+      <a href="https://pay.kiwify.com.br/rpnTNTQ" class="cta-btn">🌿 Quero Desacelerar Minha Mente</a>
+      <div class="guarantee">🔒 Compra segura · 7 dias de garantia total</div>
+    </div>
+  </section>
 
-<div class="box">
-<p>
-Você deita… mas sua cabeça continua a mil.<br><br>
-<b>Respira.</b><br><br>
-Você não precisa resolver tudo agora.
-</p>
+  <section class="section reveal">
+    <p class="section-label">Você se identifica?</p>
+    <h2>Quando foi a última vez que sua cabeça estava <em>realmente</em> em paz?</h2>
+    <ul class="symptom-list">
+      <li><span class="icon">😮‍💨</span><span>Deita na cama, mas a cabeça continua processando tudo que aconteceu no dia</span></li>
+      <li><span class="icon">🌀</span><span>Sente que está sempre no modo "alerta", mesmo sem nenhum perigo real</span></li>
+      <li><span class="icon">😤</span><span>Fica irritado(a) com facilidade e depois se sente culpado(a) por isso</span></li>
+      <li><span class="icon">🥱</span><span>Acorda cansado(a) mesmo depois de dormir horas</span></li>
+      <li><span class="icon">📱</span><span>Usa o celular compulsivamente para "desligar", mas só piora</span></li>
+    </ul>
+  </section>
+
+  <section class="section reveal">
+    <p class="section-label">O que está incluído</p>
+    <h2>Tudo que você precisa para <em>recuperar o controle</em></h2>
+    <div class="deliverables">
+      <div class="deliverable-card">
+        <div class="deliverable-icon">📄</div>
+        <div>
+          <h3>Protocolo SOS (PDF)</h3>
+          <p>O método passo a passo para desacelerar sua mente em qualquer situação — em 10 minutos. Prático e baseado em técnicas de regulação do sistema nervoso.</p>
+        </div>
+      </div>
+      <div class="deliverable-card">
+        <div class="deliverable-icon">🤖</div>
+        <div>
+          <h3>Mentor Serenity (IA)</h3>
+          <p>Assistente de inteligência artificial disponível 24h para te guiar nos momentos de crise emocional. Como ter suporte sempre no bolso.</p>
+        </div>
+      </div>
+      <div class="deliverable-card">
+        <div class="deliverable-icon">🆘</div>
+        <div>
+          <h3>Kit Socorro Imediato</h3>
+          <p>Técnicas de emergência para quando a ansiedade bate forte e você precisa de alívio agora — não amanhã.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section reveal">
+    <p class="section-label">O que dizem</p>
+    <h2>Pessoas reais, resultados <em>reais</em></h2>
+    <div class="testimonials">
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">Comecei a usar o protocolo na primeira noite e consegui dormir antes da meia-noite pela primeira vez em meses. Parece simples, mas funciona de verdade.</p>
+        <div class="testimonial-author">
+          <div class="avatar">AM</div>
+          <div class="author-info"><div class="name">Ana M.</div><div class="role">Professora, SP</div></div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">Tentei de tudo — meditação, aplicativos, remédio. O SOS foi o único que me deu uma ferramenta prática pra usar no momento da crise.</p>
+        <div class="testimonial-author">
+          <div class="avatar">RC</div>
+          <div class="author-info"><div class="name">Rodrigo C.</div><div class="role">Designer, RJ</div></div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">O Mentor Serenity me surpreendeu. Mandei mensagem às 2h da manhã em pânico e me ajudou a me acalmar em minutos. Vale muito mais que R$27.</p>
+        <div class="testimonial-author">
+          <div class="avatar">FL</div>
+          <div class="author-info"><div class="name">Fernanda L.</div><div class="role">Empreendedora, MG</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section reveal">
+    <p class="section-label">Dúvidas frequentes</p>
+    <h2>Antes de decidir</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">Isso substitui terapia ou acompanhamento médico?<span class="chevron">↓</span></button>
+        <div class="faq-answer">Não. O SOS Mente Acelerada é uma ferramenta de apoio emocional e autocuidado, não tratamento médico. Se você tem diagnóstico de ansiedade ou depressão, use em conjunto com seu acompanhamento profissional.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">Como funciona o acesso?<span class="chevron">↓</span></button>
+        <div class="faq-answer">Imediatamente após o pagamento, você recebe um email com o link de acesso ao PDF e ao Mentor Serenity. Acesso vitalício, sem mensalidade, disponível no celular ou computador.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">Tem garantia?<span class="chevron">↓</span></button>
+        <div class="faq-answer">Sim! Você tem 7 dias de garantia total. Se por qualquer motivo não gostar, basta pedir reembolso e devolvemos 100% do valor — sem burocracia.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">Funciona em crises fortes de ansiedade?<span class="chevron">↓</span></button>
+        <div class="faq-answer">O Kit Socorro Imediato foi criado exatamente para esses momentos. As técnicas são baseadas em regulação do sistema nervoso autônomo e funcionam mesmo quando a ansiedade está intensa.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta reveal">
+    <h2>Sua mente mais leve <em>começa agora.</em></h2>
+    <p>Por apenas R$27 você tem acesso imediato a tudo. Sem mensalidade, sem complicação.</p>
+    <a href="https://pay.kiwify.com.br/rpnTNTQ" class="cta-btn-large">🌿 Quero Começar Agora — R$27</a><br>
+    <p class="footer-note">🔒 Pagamento seguro via Kiwify &nbsp;·&nbsp; 🔄 Garantia de 7 dias &nbsp;·&nbsp; ⚡ Acesso imediato</p>
+  </section>
+
 </div>
 
-<div class="box">
-<h2>⚡ SOS Mente Acelerada</h2>
+<script>
+  let total = 15*60;
+  const el = document.getElementById('countdown');
+  const iv = setInterval(()=>{
+    total--;
+    if(total<=0){clearInterval(iv);el.textContent='00:00';return;}
+    el.textContent=String(Math.floor(total/60)).padStart(2,'0')+':'+String(total%60).padStart(2,'0');
+  },1000);
 
-<p>
-Método simples de 10 minutos para desacelerar sua mente e recuperar o controle emocional.
-</p>
+  const obs = new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible');}),{threshold:0.08});
+  document.querySelectorAll('.reveal').forEach(r=>obs.observe(r));
 
-<div class="price-box">
-  <p class="old">De R$97</p>
-  <p class="price">R$27</p>
-  <p style="font-size:14px;">Acesso imediato + uso vitalício</p>
-</div>
-
-<a class="btn" 
-href="https://pay.kiwify.com.br/rpnTNTQ"
-onclick="fbq('track', 'InitiateCheckout');">
-QUERO DESACELERAR MINHA MENTE
-</a>
-
-</div>
-
-<div class="box">
-<h2>📦 O que você recebe</h2>
-<p>✔ Protocolo SOS (PDF)</p>
-<p>✔ Mentor Serenity (IA)</p>
-<p>✔ Kit Socorro Imediato</p>
-</div>
-
-<div class="box">
-<h2>💬 Fale com o Mentor Serenity</h2>
-<p>Receba ajuda imediata para acalmar sua mente.</p>
-
-<iframe
-  title="Mentor Serenity"
-  src="https://typebot.co/mentor-serenity-w5dq0qm"
-  style="
-    border: none;
-    width: 100%;
-    height: 600px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-  ">
-</iframe>
-
-<a href="https://pay.kiwify.com.br/rpnTNTQ" class="btn">
-QUERO COMEÇAR AGORA
-</a>
-
-</div>
-
-<div class="box">
-<p>
-Imagine deitar…<br>
-e finalmente conseguir descansar.<br><br>
-
-Sem ansiedade.<br>
-Sem pensamentos te puxando.<br><br>
-
-<b>Sua mente mais leve começa agora.</b>
-</p>
-</div>
-
-</div>
-
-<a href="https://typebot.co/mentor-serenity-w5dq0qm" target="_blank" class="floating">
-💬 Falar com o Mentor
-</a>
-
+  function toggleFaq(btn){
+    const item=btn.closest('.faq-item');
+    const open=item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+    if(!open)item.classList.add('open');
+  }
+</script>
 </body>
 </html>
