@@ -1,499 +1,563 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Qual é o nível da sua ansiedade? — SOS Mente Acelerada</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --bg: #f5f3f8;
-    --white: #ffffff;
-    --purple: #7b5ea7;
-    --purple2: #9c4de0;
-    --lilac: #d6c9ee;
-    --soft: #ece7f6;
-    --brown: #8b6b4a;
-    --text: #3d3050;
-    --muted: #8e84a3;
-    --shadow: rgba(123,94,167,0.13);
-  }
-  * { margin:0; padding:0; box-sizing:border-box; }
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Nunito', sans-serif;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 24px 16px;
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz – SOS Mente Acelerada</title>
 
-  /* Background blobs */
-  body::before, body::after {
-    content:''; position:fixed; border-radius:50%;
-    filter:blur(70px); pointer-events:none; z-index:0; opacity:0.3;
-  }
-  body::before { width:400px;height:400px;background:#d6c9ee;top:-100px;right:-80px; }
-  body::after  { width:350px;height:350px;background:#f0e6d3;bottom:0;left:-100px; }
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s){
+      if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)
+    }(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '795628136958793');
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=795628136958793&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- End Meta Pixel Code -->
 
-  .quiz-container {
-    width: 100%;
-    max-width: 520px;
-    position: relative;
-    z-index: 1;
-  }
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
 
-  /* Header */
-  .quiz-header {
-    text-align: center;
-    margin-bottom: 28px;
-    animation: fadeUp 0.5s ease both;
-  }
-  .brand {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: var(--white); border: 1px solid var(--lilac);
-    border-radius: 100px; padding: 6px 16px;
-    font-size: 12px; font-weight: 700; color: var(--purple);
-    letter-spacing: 0.06em; margin-bottom: 20px;
-    box-shadow: 0 2px 12px var(--shadow);
-  }
-  .quiz-header h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(24px, 5vw, 34px);
-    font-weight: 700; color: var(--purple); line-height: 1.2;
-    margin-bottom: 10px;
-  }
-  .quiz-header h1 em { font-style: italic; color: var(--brown); }
-  .quiz-header p { font-size: 15px; color: var(--muted); }
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  /* Progress */
-  .progress-wrap {
-    margin-bottom: 24px;
-    animation: fadeUp 0.5s 0.1s ease both;
-  }
-  .progress-info {
-    display: flex; justify-content: space-between;
-    font-size: 12px; color: var(--muted); margin-bottom: 8px;
-  }
-  .progress-bar {
-    height: 6px; background: var(--lilac);
-    border-radius: 3px; overflow: hidden;
-  }
-  .progress-fill {
-    height: 100%;
-    background: linear-gradient(90deg, var(--purple), var(--purple2));
-    border-radius: 3px;
-    transition: width 0.4s ease;
-  }
+    :root {
+      --roxo:   #7b5ea7;
+      --lilas:  #d6c9ee;
+      --marrom: #8b6b4a;
+      --creme:  #f5f3f8;
+      --texto:  #3a2d4a;
+    }
 
-  /* Card */
-  .card {
-    background: var(--white);
-    border: 1px solid var(--lilac);
-    border-radius: 24px;
-    padding: 32px 28px;
-    box-shadow: 0 12px 48px var(--shadow);
-    animation: fadeUp 0.4s ease both;
-    position: relative;
-    overflow: hidden;
-  }
-  .card::before {
-    content:''; position:absolute; top:0;left:0;right:0;height:3px;
-    background: linear-gradient(90deg, var(--purple), var(--brown), var(--purple));
-  }
+    body {
+      background: var(--creme);
+      font-family: 'Nunito', sans-serif;
+      color: var(--texto);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 24px 16px 48px;
+    }
 
-  .q-number {
-    font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
-    text-transform: uppercase; color: var(--brown); margin-bottom: 12px;
-  }
-  .q-text {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(18px, 4vw, 22px);
-    font-weight: 700; color: var(--text);
-    line-height: 1.3; margin-bottom: 24px;
-  }
+    /* ── LOGO / HEADER ── */
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: var(--roxo);
+      margin-bottom: 8px;
+      text-align: center;
+    }
+    .tagline {
+      font-size: .85rem;
+      color: var(--marrom);
+      margin-bottom: 32px;
+      text-align: center;
+    }
 
-  /* Options */
-  .options { display: flex; flex-direction: column; gap: 10px; }
-  .option {
-    display: flex; align-items: center; gap: 14px;
-    background: var(--bg);
-    border: 1.5px solid var(--lilac);
-    border-radius: 14px; padding: 14px 16px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    text-align: left;
-  }
-  .option:hover {
-    border-color: var(--purple);
-    background: var(--soft);
-    transform: translateX(4px);
-  }
-  .option.selected {
-    border-color: var(--purple);
-    background: var(--soft);
-    box-shadow: 0 0 0 3px rgba(123,94,167,0.15);
-  }
-  .opt-dot {
-    width: 22px; height: 22px; border-radius: 50%;
-    border: 2px solid var(--lilac);
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0; transition: all 0.2s;
-  }
-  .option.selected .opt-dot {
-    background: var(--purple); border-color: var(--purple);
-  }
-  .opt-dot::after {
-    content: ''; width: 8px; height: 8px;
-    border-radius: 50%; background: white;
-    opacity: 0; transition: opacity 0.2s;
-  }
-  .option.selected .opt-dot::after { opacity: 1; }
-  .opt-text { font-size: 14px; font-weight: 500; color: var(--text); line-height: 1.4; }
+    /* ── CARD ── */
+    .card {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 4px 24px rgba(123,94,167,.12);
+      max-width: 640px;
+      width: 100%;
+      padding: 36px 32px;
+    }
 
-  /* Next button */
-  .btn-next {
-    width: 100%; margin-top: 20px;
-    background: linear-gradient(135deg, var(--purple), var(--purple2));
-    color: white; border: none;
-    font-family: 'Nunito', sans-serif;
-    font-size: 15px; font-weight: 700;
-    padding: 16px; border-radius: 14px;
-    cursor: pointer; display: none;
-    transition: transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 8px 24px rgba(123,94,167,0.3);
-  }
-  .btn-next.visible { display: block; animation: fadeUp 0.3s ease both; }
-  .btn-next:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(123,94,167,0.4); }
+    /* ── PROGRESS ── */
+    .progress-wrap {
+      margin-bottom: 28px;
+    }
+    .progress-label {
+      font-size: .8rem;
+      color: var(--marrom);
+      margin-bottom: 6px;
+    }
+    .progress-bar {
+      background: var(--lilas);
+      border-radius: 99px;
+      height: 8px;
+    }
+    .progress-fill {
+      background: var(--roxo);
+      height: 8px;
+      border-radius: 99px;
+      transition: width .4s ease;
+      width: 0%;
+    }
 
-  /* RESULT */
-  .result-card { display: none; }
-  .result-card.show {
-    display: block;
-    animation: fadeUp 0.5s ease both;
-  }
-  .result-emoji { font-size: 52px; text-align: center; margin-bottom: 16px; }
-  .result-level {
-    text-align: center;
-    font-family: 'Playfair Display', serif;
-    font-size: 28px; font-weight: 700;
-    color: var(--purple); margin-bottom: 8px;
-  }
-  .result-level em { font-style: italic; color: var(--brown); }
-  .result-desc {
-    text-align: center; font-size: 15px;
-    color: var(--muted); line-height: 1.7;
-    margin-bottom: 24px; padding: 0 8px;
-  }
+    /* ── QUESTION ── */
+    .question-num {
+      font-size: .78rem;
+      font-weight: 700;
+      color: var(--roxo);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: 8px;
+    }
+    .question-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      line-height: 1.5;
+      margin-bottom: 24px;
+    }
 
-  /* Score meter */
-  .score-meter {
-    background: var(--bg); border-radius: 14px;
-    padding: 16px; margin-bottom: 20px;
-  }
-  .score-label {
-    display: flex; justify-content: space-between;
-    font-size: 12px; font-weight: 600;
-    color: var(--muted); margin-bottom: 8px;
-  }
-  .score-bar {
-    height: 10px; background: var(--lilac);
-    border-radius: 5px; overflow: hidden;
-  }
-  .score-fill {
-    height: 100%;
-    border-radius: 5px;
-    transition: width 1s ease;
-  }
+    /* ── OPTIONS ── */
+    .options { display: flex; flex-direction: column; gap: 12px; }
+    .option {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 18px;
+      border: 2px solid var(--lilas);
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all .2s;
+      font-size: .95rem;
+      font-weight: 600;
+      background: #fff;
+    }
+    .option:hover { border-color: var(--roxo); background: var(--creme); }
+    .option.selected { border-color: var(--roxo); background: var(--lilas); }
+    .option-dot {
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      border: 2px solid var(--roxo);
+      flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .option.selected .option-dot::after {
+      content: '';
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--roxo);
+    }
 
-  /* Capture form */
-  .capture-form { margin-bottom: 20px; }
-  .capture-form label {
-    display: block; font-size: 12px; font-weight: 700;
-    color: var(--muted); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.06em;
-  }
-  .capture-form input {
-    width: 100%; border: 1.5px solid var(--lilac);
-    border-radius: 12px; padding: 13px 16px;
-    font-family: 'Nunito', sans-serif; font-size: 14px;
-    color: var(--text); background: var(--bg);
-    transition: border-color 0.2s;
-    margin-bottom: 10px;
-  }
-  .capture-form input:focus { outline: none; border-color: var(--purple); background: var(--white); }
+    /* ── BUTTONS ── */
+    .btn-next {
+      margin-top: 28px;
+      width: 100%;
+      padding: 16px;
+      background: var(--roxo);
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background .2s, transform .1s;
+      display: none;
+    }
+    .btn-next:hover { background: #6a4e96; transform: translateY(-1px); }
+    .btn-next.visible { display: block; }
 
-  /* CTA result */
-  .result-cta {
-    display: block; width: 100%; text-align: center;
-    background: linear-gradient(135deg, var(--purple), var(--purple2));
-    color: white; text-decoration: none;
-    font-family: 'Nunito', sans-serif; font-size: 15px; font-weight: 700;
-    padding: 18px; border-radius: 14px;
-    box-shadow: 0 8px 28px rgba(123,94,167,0.35);
-    transition: transform 0.2s, box-shadow 0.2s;
-    border: none; cursor: pointer;
-  }
-  .result-cta:hover { transform: translateY(-2px); box-shadow: 0 14px 36px rgba(123,94,167,0.45); }
-  .result-guarantee { text-align: center; font-size: 11px; color: var(--muted); margin-top: 10px; }
+    /* ── LEAD FORM ── */
+    .lead-form { display: flex; flex-direction: column; gap: 16px; }
+    .lead-intro {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+    .lead-sub { font-size: .9rem; color: #666; margin-bottom: 8px; }
+    .field-label { font-size: .85rem; font-weight: 700; color: var(--marrom); margin-bottom: 4px; }
+    .field-input {
+      width: 100%;
+      padding: 14px 16px;
+      border: 2px solid var(--lilas);
+      border-radius: 12px;
+      font-family: 'Nunito', sans-serif;
+      font-size: .95rem;
+      color: var(--texto);
+      background: #fff;
+      transition: border .2s;
+    }
+    .field-input:focus { outline: none; border-color: var(--roxo); }
+    .btn-submit {
+      padding: 16px;
+      background: var(--roxo);
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background .2s;
+      margin-top: 4px;
+    }
+    .btn-submit:hover { background: #6a4e96; }
+    .btn-submit:disabled { background: #b3a0ce; cursor: not-allowed; }
 
-  /* Animations */
-  @keyframes fadeUp {
-    from { opacity:0; transform:translateY(16px); }
-    to   { opacity:1; transform:translateY(0); }
-  }
-  @keyframes slideOut {
-    to { opacity:0; transform:translateX(-30px); }
-  }
-</style>
+    /* ── RESULT ── */
+    .result-icon { font-size: 3rem; text-align: center; margin-bottom: 16px; }
+    .result-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+    .result-body { font-size: .95rem; line-height: 1.7; color: #555; margin-bottom: 24px; }
+    .result-badge {
+      display: inline-block;
+      background: var(--lilas);
+      color: var(--roxo);
+      font-weight: 700;
+      border-radius: 99px;
+      padding: 6px 16px;
+      font-size: .85rem;
+      margin-bottom: 20px;
+    }
+    .btn-cta {
+      display: block;
+      width: 100%;
+      padding: 18px;
+      background: var(--roxo);
+      color: #fff;
+      border: none;
+      border-radius: 14px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      transition: background .2s, transform .1s;
+    }
+    .btn-cta:hover { background: #6a4e96; transform: translateY(-2px); }
+    .cta-sub { font-size: .8rem; color: #999; text-align: center; margin-top: 10px; }
+
+    /* ── LOADING ── */
+    .loading { text-align: center; padding: 24px 0; }
+    .spinner {
+      width: 40px; height: 40px;
+      border: 4px solid var(--lilas);
+      border-top-color: var(--roxo);
+      border-radius: 50%;
+      animation: spin .8s linear infinite;
+      margin: 0 auto 16px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── FOOTER ── */
+    .footer { margin-top: 32px; font-size: .75rem; color: #aaa; text-align: center; }
+
+    /* ── HIDDEN ── */
+    .hidden { display: none !important; }
+
+    @media (max-width: 480px) {
+      .card { padding: 28px 20px; }
+      .question-text { font-size: 1.05rem; }
+    }
+  </style>
 </head>
 <body>
-<div class="quiz-container">
 
-  <div class="quiz-header" id="quiz-header">
-    <div class="brand">🧠 SOS Mente Acelerada</div>
-    <h1>Qual é o nível da<br><em>sua ansiedade?</em></h1>
-    <p>Responda 5 perguntas e descubra em 60 segundos</p>
-  </div>
-
-  <div class="progress-wrap" id="progress-wrap">
-    <div class="progress-info">
-      <span id="progress-text">Pergunta 1 de 5</span>
-      <span id="progress-pct">20%</span>
-    </div>
-    <div class="progress-bar">
-      <div class="progress-fill" id="progress-fill" style="width:20%"></div>
-    </div>
-  </div>
+  <div class="logo">💜 SOS Mente Acelerada</div>
+  <p class="tagline">Descubra o nível de sobrecarga da sua mente</p>
 
   <!-- QUIZ CARD -->
   <div class="card" id="quiz-card">
-    <div class="q-number" id="q-number">Pergunta 1 de 5</div>
-    <div class="q-text" id="q-text"></div>
-    <div class="options" id="options"></div>
-    <button class="btn-next" id="btn-next" onclick="nextQuestion()">Próxima →</button>
+    <div class="progress-wrap">
+      <div class="progress-label" id="progress-label">Pergunta 1 de 7</div>
+      <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+    </div>
+
+    <div id="question-block">
+      <div class="question-num" id="question-num">Pergunta 1</div>
+      <div class="question-text" id="question-text"></div>
+      <div class="options" id="options-list"></div>
+      <button class="btn-next" id="btn-next" onclick="nextQuestion()">Próxima →</button>
+    </div>
+  </div>
+
+  <!-- LEAD FORM CARD -->
+  <div class="card hidden" id="lead-card">
+    <p class="lead-intro">Quase lá! Para revelar o seu resultado personalizado, preciso saber com quem estou falando 💜</p>
+    <p class="lead-sub">Seus dados são confidenciais e usados apenas para enviar o seu diagnóstico.</p>
+    <div class="lead-form">
+      <div>
+        <div class="field-label">Seu nome</div>
+        <input class="field-input" type="text" id="lead-name" placeholder="Como posso te chamar?" />
+      </div>
+      <div>
+        <div class="field-label">Seu melhor e-mail</div>
+        <input class="field-input" type="email" id="lead-email" placeholder="seu@email.com" />
+      </div>
+      <button class="btn-submit" id="btn-submit" onclick="submitLead()">Ver meu resultado →</button>
+    </div>
+  </div>
+
+  <!-- LOADING CARD -->
+  <div class="card hidden" id="loading-card">
+    <div class="loading">
+      <div class="spinner"></div>
+      <p style="color:var(--marrom);font-weight:600;">Analisando suas respostas…</p>
+    </div>
   </div>
 
   <!-- RESULT CARD -->
-  <div class="card result-card" id="result-card">
-    <div class="result-emoji" id="result-emoji"></div>
-    <div class="result-level" id="result-level"></div>
-    <div class="result-desc" id="result-desc"></div>
-    <div class="score-meter">
-      <div class="score-label">
-        <span>Nível de sobrecarga mental</span>
-        <span id="score-pct-label">0%</span>
-      </div>
-      <div class="score-bar">
-        <div class="score-fill" id="score-fill" style="width:0%"></div>
-      </div>
-    </div>
-    <div class="capture-form">
-      <label>Onde envio seu protocolo personalizado?</label>
-      <input type="text" id="input-name" placeholder="Seu nome" />
-      <input type="email" id="input-email" placeholder="Seu melhor e-mail" />
-    </div>
-    <button class="result-cta" onclick="goToSales()">
-      🌿 Ver meu protocolo personalizado — R$27
-    </button>
-    <p class="result-guarantee">🔒 Acesso imediato · 7 dias de garantia</p>
+  <div class="card hidden" id="result-card">
+    <div class="result-icon" id="result-icon"></div>
+    <div class="result-title" id="result-title"></div>
+    <div style="text-align:center"><span class="result-badge" id="result-badge"></span></div>
+    <p class="result-body" id="result-body"></p>
+    <a class="btn-cta" id="result-cta" href="#">Ver minha solução agora →</a>
+    <p class="cta-sub" id="cta-sub"></p>
   </div>
 
-</div>
+  <div class="footer">© SOS Mente Acelerada · sosmenteacelerada@gmail.com</div>
 
-<script>
-const questions = [
-  {
-    text: "Com que frequência você vai para a cama, mas sua mente continua acelerada?",
-    options: [
-      { text: "Raramente — costumo dormir bem", score: 1 },
-      { text: "Às vezes, 1 ou 2 vezes por semana", score: 2 },
-      { text: "Frequentemente, quase toda semana", score: 3 },
-      { text: "Todo dia, é minha rotina normal", score: 4 }
-    ]
-  },
-  {
-    text: "Você se pega revisando situações do passado ou preocupado com o futuro?",
-    options: [
-      { text: "Não muito, consigo manter o foco no presente", score: 1 },
-      { text: "Sim, mas consigo me distrair", score: 2 },
-      { text: "Frequentemente e me sinto esgotado por isso", score: 3 },
-      { text: "É constante, minha mente nunca descansa", score: 4 }
-    ]
-  },
-  {
-    text: "Como você se sente fisicamente quando está em situações de pressão?",
-    options: [
-      { text: "Tranquilo, lido bem com pressão", score: 1 },
-      { text: "Sinto um leve desconforto, mas passa", score: 2 },
-      { text: "Coração acelerado, tensão muscular, respiração curta", score: 3 },
-      { text: "Crises físicas intensas — aperto no peito, formigamento", score: 4 }
-    ]
-  },
-  {
-    text: "Qual destas situações mais te identifica no dia a dia?",
-    options: [
-      { text: "Consigo relaxar com facilidade quando quero", score: 1 },
-      { text: "Uso celular ou TV para desligar, mas não funciona 100%", score: 2 },
-      { text: "Mesmo de folga, não consigo realmente descansar", score: 3 },
-      { text: "Sinto culpa quando paro — parece que devo estar sempre fazendo algo", score: 4 }
-    ]
-  },
-  {
-    text: "Já tentou alguma técnica para controlar a ansiedade?",
-    options: [
-      { text: "Nunca precisei, meu nível é baixo", score: 1 },
-      { text: "Tentei meditação ou respiração, mas desisti", score: 2 },
-      { text: "Tentei várias coisas, nada funcionou de forma consistente", score: 3 },
-      { text: "Estou em busca urgente de algo que realmente funcione", score: 4 }
-    ]
-  }
-];
+  <script>
+    // ─────────────────────────────────────────────
+    // CONFIGURAÇÃO — substitua pela URL real do n8n
+    // ─────────────────────────────────────────────
+    const WEBHOOK_URL = 'https://sosmente.app.n8n.cloud/webhook/quiz-lead';
+    const CHECKOUT_URL = 'https://pay.kiwify.com.br/rpnTNTQ';
+    const SALES_PAGE   = 'https://solucoescotidianas.github.io/Paginadevendassosasiedade/';
 
-const results = [
-  {
-    min: 5, max: 8,
-    emoji: "😌",
-    level: "Mente <em>levemente</em> sobrecarregada",
-    desc: "Sua mente está sob pressão leve, mas com os instrumentos certos você pode manter a leveza antes que se torne um problema maior. O protocolo SOS vai te dar ferramentas preventivas poderosas.",
-    color: "#1D9E75",
-    cta: "Ver meu protocolo preventivo"
-  },
-  {
-    min: 9, max: 13,
-    emoji: "😤",
-    level: "Ansiedade <em>moderada</em> — atenção!",
-    desc: "Você está no ponto de inflexão. Sua mente carrega mais do que deveria e isso já afeta seu sono e sua energia. O método de 10 minutos pode mudar isso hoje mesmo.",
-    color: "#BA7517",
-    cta: "Quero desacelerar minha mente"
-  },
-  {
-    min: 14, max: 17,
-    emoji: "🌀",
-    level: "Sobrecarga <em>alta</em> — precisa agir agora",
-    desc: "Sua mente está em modo de alerta quase constante. Isso esgota seu sistema nervoso e afeta tudo — sono, relacionamentos, produtividade. O protocolo SOS foi criado exatamente para esse nível.",
-    color: "#D85A30",
-    cta: "Preciso do protocolo urgente"
-  },
-  {
-    min: 18, max: 20,
-    emoji: "🆘",
-    level: "Nível <em>crítico</em> — sua mente pede socorro",
-    desc: "Você está carregando um peso mental enorme. Cada dia sem intervenção aumenta o esgotamento. O Kit Socorro Imediato foi desenvolvido para situações exatamente como a sua.",
-    color: "#E24B4A",
-    cta: "Preciso de ajuda agora — R$27"
-  }
-];
+    // ─────────────────────────────────────────────
+    // PERGUNTAS (7 perguntas, pontuação 1–3 cada)
+    // Score mín: 7 | máx: 21 | threshold: ≥14 = alto
+    // ─────────────────────────────────────────────
+    const questions = [
+      {
+        text: "Com que frequência sua mente fica acelerada, cheia de pensamentos que não param?",
+        options: [
+          { label: "Raramente — consigo me acalmar com facilidade", score: 1 },
+          { label: "Às vezes — especialmente em momentos de estresse", score: 2 },
+          { label: "Quase sempre — é meu estado padrão", score: 3 }
+        ]
+      },
+      {
+        text: "Você tem dificuldade para dormir por causa de preocupações ou pensamentos?",
+        options: [
+          { label: "Não, costumo dormir bem", score: 1 },
+          { label: "Às vezes demoro para pegar no sono", score: 2 },
+          { label: "Com frequência — acordo no meio da noite ou não consigo adormecer", score: 3 }
+        ]
+      },
+      {
+        text: "Você sente sintomas físicos como aperto no peito, falta de ar, nó na garganta ou coração acelerado?",
+        options: [
+          { label: "Raramente", score: 1 },
+          { label: "De vez em quando", score: 2 },
+          { label: "Com frequência ou quase todo dia", score: 3 }
+        ]
+      },
+      {
+        text: "Situações do dia a dia (trânsito, prazo, fila) te deixam ansioso(a) ou irritado(a) de forma desproporcional?",
+        options: [
+          { label: "Raramente perco o equilíbrio", score: 1 },
+          { label: "Às vezes reajo mais do que deveria", score: 2 },
+          { label: "Sempre — me sinto no limite", score: 3 }
+        ]
+      },
+      {
+        text: "Como está seu nível de energia e foco ao longo do dia?",
+        options: [
+          { label: "Razoável — me canso no final do dia como qualquer pessoa", score: 1 },
+          { label: "Oscilo bastante — há momentos de pico e de queda brusca", score: 2 },
+          { label: "Exausto(a) — me sinto mentalmente esgotado(a) quase sempre", score: 3 }
+        ]
+      },
+      {
+        text: "Sua ansiedade já te impediu de fazer algo que você queria (sair, falar, agir)?",
+        options: [
+          { label: "Não, raramente me limita", score: 1 },
+          { label: "Algumas vezes sim", score: 2 },
+          { label: "Com frequência — já deixei oportunidades passarem por isso", score: 3 }
+        ]
+      },
+      {
+        text: "Como você descreveria sua relação com a ansiedade hoje?",
+        options: [
+          { label: "Está sob controle — lido bem com ela", score: 1 },
+          { label: "É incômoda, mas ainda consigo funcionar", score: 2 },
+          { label: "Está dominando minha vida e preciso de ajuda urgente", score: 3 }
+        ]
+      }
+    ];
 
-let current = 0;
-let totalScore = 0;
-let selectedScore = null;
+    // ─────────────────────────────────────────────
+    // ESTADO
+    // ─────────────────────────────────────────────
+    let currentQ = 0;
+    let totalScore = 0;
+    let selectedScore = null;
+    let answers = [];
 
-function getResult(score) {
-  return results.find(r => score >= r.min && score <= r.max) || results[results.length-1];
-}
+    // ─────────────────────────────────────────────
+    // INICIALIZAÇÃO
+    // ─────────────────────────────────────────────
+    function renderQuestion() {
+      const q = questions[currentQ];
+      const total = questions.length;
 
-function renderQuestion() {
-  const q = questions[current];
-  document.getElementById('q-number').textContent = `Pergunta ${current+1} de ${questions.length}`;
-  document.getElementById('q-text').textContent = q.text;
-  document.getElementById('progress-text').textContent = `Pergunta ${current+1} de ${questions.length}`;
-  const pct = Math.round(((current+1)/questions.length)*100);
-  document.getElementById('progress-pct').textContent = pct + '%';
-  document.getElementById('progress-fill').style.width = pct + '%';
+      document.getElementById('progress-label').textContent =
+        `Pergunta ${currentQ + 1} de ${total}`;
+      document.getElementById('progress-fill').style.width =
+        `${((currentQ) / total) * 100}%`;
+      document.getElementById('question-num').textContent =
+        `Pergunta ${currentQ + 1}`;
+      document.getElementById('question-text').textContent = q.text;
 
-  const opts = document.getElementById('options');
-  opts.innerHTML = '';
-  q.options.forEach((o, i) => {
-    const div = document.createElement('div');
-    div.className = 'option';
-    div.innerHTML = `<div class="opt-dot"></div><div class="opt-text">${o.text}</div>`;
-    div.onclick = () => selectOption(div, o.score);
-    opts.appendChild(div);
-  });
+      const list = document.getElementById('options-list');
+      list.innerHTML = '';
+      selectedScore = null;
+      document.getElementById('btn-next').classList.remove('visible');
 
-  selectedScore = null;
-  document.getElementById('btn-next').classList.remove('visible');
-}
+      q.options.forEach((opt, i) => {
+        const div = document.createElement('div');
+        div.className = 'option';
+        div.innerHTML = `<div class="option-dot"></div><span>${opt.label}</span>`;
+        div.onclick = () => selectOption(div, opt.score, i);
+        list.appendChild(div);
+      });
+    }
 
-function selectOption(el, score) {
-  document.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
-  el.classList.add('selected');
-  selectedScore = score;
-  document.getElementById('btn-next').classList.add('visible');
-}
+    function selectOption(el, score, idx) {
+      document.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+      el.classList.add('selected');
+      selectedScore = score;
+      document.getElementById('btn-next').classList.add('visible');
+    }
 
-function nextQuestion() {
-  if (selectedScore === null) return;
-  totalScore += selectedScore;
+    function nextQuestion() {
+      if (selectedScore === null) return;
+      totalScore += selectedScore;
+      answers.push({ question: questions[currentQ].text, score: selectedScore });
+      currentQ++;
 
-  if (current < questions.length - 1) {
-    current++;
-    const card = document.getElementById('quiz-card');
-    card.style.animation = 'slideOut 0.3s ease forwards';
-    setTimeout(() => {
-      card.style.animation = '';
-      renderQuestion();
-      card.style.animation = 'fadeUp 0.4s ease both';
-    }, 280);
-  } else {
-    showResult();
-  }
-}
+      if (currentQ < questions.length) {
+        renderQuestion();
+      } else {
+        // Atualiza barra para 100%
+        document.getElementById('progress-fill').style.width = '100%';
+        showLeadForm();
+      }
+    }
 
-function showResult() {
-  document.getElementById('quiz-header').style.display = 'none';
-  document.getElementById('progress-wrap').style.display = 'none';
-  document.getElementById('quiz-card').style.display = 'none';
+    // ─────────────────────────────────────────────
+    // FORMULÁRIO DE LEAD
+    // ─────────────────────────────────────────────
+    function showLeadForm() {
+      document.getElementById('quiz-card').classList.add('hidden');
+      document.getElementById('lead-card').classList.remove('hidden');
+    }
 
-  const r = getResult(totalScore);
-  const pct = Math.round(((totalScore - 5) / 15) * 100);
+    async function submitLead() {
+      const name  = document.getElementById('lead-name').value.trim();
+      const email = document.getElementById('lead-email').value.trim();
 
-  document.getElementById('result-emoji').textContent = r.emoji;
-  document.getElementById('result-level').innerHTML = r.level;
-  document.getElementById('result-desc').textContent = r.desc;
-  document.getElementById('score-fill').style.background = r.color;
+      if (!name || !email) {
+        alert('Por favor, preencha seu nome e e-mail para ver o resultado 💜');
+        return;
+      }
 
-  const rc = document.getElementById('result-card');
-  rc.classList.add('show');
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        alert('Por favor, insira um e-mail válido.');
+        return;
+      }
 
-  // Animate score bar
-  setTimeout(() => {
-    document.getElementById('score-fill').style.width = pct + '%';
-    document.getElementById('score-pct-label').textContent = pct + '%';
-  }, 300);
+      const btn = document.getElementById('btn-submit');
+      btn.disabled = true;
+      btn.textContent = 'Analisando…';
 
-  // Store score for webhook
-  window._quizScore = totalScore;
-  window._quizResult = r.level.replace(/<[^>]*>/g, '');
-}
+      // Dispara evento Lead no Pixel
+      if (typeof fbq !== 'undefined') {
+        fbq('track', 'Lead', { value: totalScore, currency: 'BRL' });
+      }
 
-function goToSales() {
-  const name = document.getElementById('input-name').value;
-  const email = document.getElementById('input-email').value;
+      document.getElementById('lead-card').classList.add('hidden');
+      document.getElementById('loading-card').classList.remove('hidden');
 
-  // Envia para n8n webhook se disponível
-  if (name && email) {
-    fetch('SEU_WEBHOOK_N8N_AQUI', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
+      const nivel = totalScore >= 14 ? 'alto' : 'baixo';
+
+      const payload = {
         nome: name,
         email: email,
-        score: window._quizScore,
-        resultado: window._quizResult,
+        score: totalScore,
+        nivel: nivel,
+        respostas: answers,
+        origem: 'quiz',
         timestamp: new Date().toISOString()
-      })
-    }).catch(() => {}); // Silent fail — não bloqueia o redirect
-  }
+      };
 
-  // Redirect para página de vendas
-  window.location.href = 'https://solucoescotidianas.github.io/Paginadevendassosasiedade/';
-}
+      try {
+        await fetch(WEBHOOK_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+      } catch (e) {
+        console.warn('Webhook indisponível:', e);
+      }
 
-// Init
-renderQuestion();
-</script>
+      setTimeout(() => showResult(nivel, name), 1800);
+    }
+
+    // ─────────────────────────────────────────────
+    // RESULTADO
+    // ─────────────────────────────────────────────
+    function showResult(nivel, name) {
+      document.getElementById('loading-card').classList.add('hidden');
+      document.getElementById('result-card').classList.remove('hidden');
+
+      const firstName = name.split(' ')[0];
+
+      if (nivel === 'alto') {
+        document.getElementById('result-icon').textContent  = '🚨';
+        document.getElementById('result-title').textContent =
+          `${firstName}, sua mente precisa de socorro agora`;
+        document.getElementById('result-badge').textContent =
+          `Nível de sobrecarga: ALTO (${totalScore}/21)`;
+        document.getElementById('result-body').innerHTML =
+          `Suas respostas mostram sinais claros de uma mente em <strong>sobrecarga intensa</strong>.
+          A ansiedade está consumindo sua energia, seu sono e sua qualidade de vida.<br><br>
+          A boa notícia: existe um protocolo específico criado para isso.
+          O <strong>SOS Mente Acelerada</strong> vai te dar ferramentas práticas para
+          desacelerar sua mente hoje — não daqui a meses.`;
+        document.getElementById('result-cta').href = CHECKOUT_URL;
+        document.getElementById('result-cta').textContent = '🛒 Quero o SOS agora por R$27 →';
+        document.getElementById('cta-sub').textContent =
+          'De R$97 por R$27 — acesso imediato ao protocolo + Mentor IA Serenity';
+      } else {
+        document.getElementById('result-icon').textContent  = '💛';
+        document.getElementById('result-title').textContent =
+          `${firstName}, você está no caminho certo!`;
+        document.getElementById('result-badge').textContent =
+          `Nível de sobrecarga: MODERADO (${totalScore}/21)`;
+        document.getElementById('result-body').innerHTML =
+          `Você ainda mantém algum equilíbrio, mas os sinais de alerta estão aparecendo.
+          Se não cuidar agora, tende a piorar.<br><br>
+          O <strong>SOS Mente Acelerada</strong> pode te ajudar a construir uma base sólida
+          de tranquilidade antes que a ansiedade tome conta de vez.
+          É muito mais fácil agir antes de chegar no limite.`;
+        document.getElementById('result-cta').href = CHECKOUT_URL;
+        document.getElementById('result-cta').textContent = '💜 Quero me cuidar agora →';
+        document.getElementById('cta-sub').textContent =
+          'Acesso imediato · R$27 · Garantia de 7 dias';
+      }
+    }
+
+    // ─────────────────────────────────────────────
+    // START
+    // ─────────────────────────────────────────────
+    renderQuestion();
+  </script>
 </body>
 </html>
